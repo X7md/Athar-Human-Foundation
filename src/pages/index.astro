@@ -1,11 +1,475 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-
 <Layout>
-	<Welcome />
+	<section class="flex flex-col items-center text-center justify-center" data-aos="fade-up">
+		<hgroup>
+		<h3 class="font-ibm text-4xl text-balance font-black">
+			مرحبًا بكم
+		</h3>
+		<h1 class="mb-4 text-4xl text-balance font-watad leading-none md:text-5xl lg:text-6xl p-4">
+			 في مؤسسة أثر الإنسانية
+		</h1>
+		</hgroup>
+		<img class="max-w-full md:w-[50%] sm:w-[70%] w-[80%] rounded-lg" src="/hero-image-2.jpeg" />
+		<p class="p-4 text-lg font-normal lg:text-xl sm:px-16 xl:px-48 font-ibm">
+			في مؤسسة أثر الإنسانية، 
+			نسعى لتحقيق تغيير مستدام وملموس في حياة الأفراد والمجتمعات،
+			مستلهمين رؤيتنا من قيم الخير والعطاء المتجذرة في تعاليم ديننا الحنيف.
+			نحن نؤمن بأن النجاح الحقيقي يُقاس بمقدار ما نقدمه من أثر
+			إيجابي في حياة الآخرين، ونطمح إلى بناء إرثٍ إنساني يُخلّد باسم العطاء
+		</p>
+		<!-- <a href="#" class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ">
+			Learn more
+			<svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+			<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+		  </svg>
+		</a> -->
+	</section>
+	<section class="sm:px-16 xl:px-48 p-4">
+		<h2 class="text-4xl font-extrabold font-almasmak">
+			من نحن؟
+		</h2>
+		<ul class="grid grid-cols-1 md:grid-cols-2">
+			<li class="p-2 my-3 h-full" data-aos="fade-up">
+				<div class="h-full p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+					<svg class="size-7 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-3.771 0-5.657 1.172-6.828S6.229 4 10 4h4c3.771 0 5.657 0 6.828 1.172S22 8.229 22 12s0 5.657-1.172 6.828S17.771 20 14 20h-4c-3.771 0-5.657 0-6.828-1.172S2 15.771 2 12Z"/><path stroke-linecap="round" d="m6 8l2.159 1.8c1.837 1.53 2.755 2.295 3.841 2.295s2.005-.765 3.841-2.296L18 8"/></g>
+					</svg>
+						<h5 class="text-2xl font-almasmak">
+							رسالتنا
+						</h5>
+					<p class="mb-3 font-normal font-ibm">
+						نسعى في مؤسسة أثر الإنسانية إلى تمكين الأفراد والمجتمعات من خلال
+						مبادرات تنموية مستدامة، ترتكز على التعليم، الصحة،
+						الإسكان، والتنمية الاجتماعية، لضمان حياة كريمة للجميع.
+					</p>
+					<!-- <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+						See our guideline
+						<svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+						</svg>
+					</a> -->
+				</div>
+			</li>
+			<li class="h-full p-2 my-3" data-aos="fade-up">
+				<div class="h-full p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+					<svg class="size-7 mb-2" xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24">
+						<g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11.395 11.734c1.251-.355 1.877-.533 2.212-.198c.335.334.157.96-.199 2.211l-.092.324c-.1.355-.151.533-.127.708s.12.326.31.629l.174.276c.673 1.066 1.01 1.6.78 2.035s-.872.487-2.158.587l-.333.026c-.365.029-.548.043-.708.127s-.278.228-.515.516l-.216.263c-.836 1.014-1.254 1.522-1.73 1.456c-.476-.065-.696-.66-1.135-1.848l-.114-.308c-.125-.338-.187-.507-.31-.63c-.123-.122-.292-.185-.63-.31l-.307-.113c-1.19-.44-1.784-.66-1.849-1.136s.442-.894 1.457-1.73l.262-.215c.288-.238.433-.356.517-.516s.098-.342.126-.708l.026-.333c.1-1.286.15-1.929.587-2.158c.436-.23.97.107 2.036.78l.276.174c.303.191.454.287.629.31c.174.025.352-.026.707-.127z"/><path stroke-linecap="round" d="M21.83 19.982c1.01-2.155-2.57-7.028-8-10.884C8.403 5.242 3.183 3.863 2.17 6.018m19.66 13.964c-.49 1.044-1.97 1.259-3.981.763m3.98-.763c.533-1.136-.21-3.029-1.829-5.13m1.83 5.13c-.631 1.344-2.897 1.314-5.83.166M2.17 6.018c-.532 1.136.211 3.028 1.83 5.129m-1.83-5.13c.49-1.044 1.97-1.258 3.981-.763m-3.98.764c-.707 1.506.83 4.341 3.675 7.229" opacity=".5"/><path stroke-linecap="round" d="M18.895 3.395c.099.924.486 1.79 1.105 2.47m-1.105-2.47c-.93.767-1.23.909-2.402 1.135m2.402-1.135L19.204 3m-1.607 4a4.35 4.35 0 0 0-1.105-2.47m0 0L16 4.514"/></g>
+					</svg>
+						<h5 class="text-2xl font-almasmak">
+							رؤيتنا
+						</h5>
+					<p class="mb-3 font-normal font-ibm">
+						أن نكون نموذجًا عالميًا في العمل الإنساني المستدام،
+						ونساهم بفعالية في تحقيق أهداف رؤية
+						المملكة العربية السعودية 2030 نحو مجتمع حيوي ومستدام.
+					</p>
+					<!-- <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+						See our guideline
+						<svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+						</svg>
+					</a> -->
+				</div>
+			</li>
+			<li class="p-2 my-3 md:col-span-2" data-aos="fade-up">
+				<div>
+					<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+						<svg class="size-7 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.861 3.363C11.368 2.454 11.621 2 12 2s.632.454 1.139 1.363l.13.235c.145.259.217.388.329.473s.252.117.532.18l.254.058c.984.222 1.476.334 1.593.71s-.218.769-.889 1.553l-.174.203c-.19.223-.285.334-.328.472s-.029.287 0 .584l.026.27c.102 1.047.152 1.57-.154 1.803s-.767.02-1.688-.404l-.239-.11c-.261-.12-.392-.18-.531-.18s-.27.06-.531.18l-.239.11c-.92.425-1.382.637-1.688.404s-.256-.756-.154-1.802l.026-.271c.029-.297.043-.446 0-.584s-.138-.25-.328-.472l-.174-.203c-.67-.784-1.006-1.177-.889-1.553s.609-.488 1.593-.71l.254-.058c.28-.063.42-.095.532-.18s.184-.214.328-.473zm8.569 4.319c.254-.455.38-.682.57-.682s.316.227.57.682l.065.117c.072.13.108.194.164.237s.126.058.266.09l.127.028c.492.112.738.167.796.356s-.109.384-.444.776l-.087.101c-.095.112-.143.168-.164.237s-.014.143 0 .292l.013.135c.05.523.076.785-.077.901s-.383.01-.844-.202l-.12-.055c-.13-.06-.196-.09-.265-.09c-.07 0-.135.03-.266.09l-.119.055c-.46.212-.69.318-.844.202c-.153-.116-.128-.378-.077-.901l.013-.135c.014-.15.022-.224 0-.292c-.021-.07-.069-.125-.164-.237l-.087-.101c-.335-.392-.503-.588-.444-.776s.304-.244.796-.356l.127-.028c.14-.032.21-.048.266-.09c.056-.043.092-.108.164-.237zm-16 0C3.685 7.227 3.81 7 4 7s.316.227.57.682l.065.117c.072.13.108.194.164.237s.126.058.266.09l.127.028c.492.112.738.167.797.356c.058.188-.11.384-.445.776l-.087.101c-.095.112-.143.168-.164.237s-.014.143 0 .292l.013.135c.05.523.076.785-.077.901s-.384.01-.844-.202l-.12-.055c-.13-.06-.196-.09-.265-.09c-.07 0-.135.03-.266.09l-.119.055c-.46.212-.69.318-.844.202c-.153-.116-.128-.378-.077-.901l.013-.135c.014-.15.022-.224 0-.292c-.021-.07-.069-.125-.164-.237l-.087-.101c-.335-.392-.503-.588-.445-.776c.059-.189.305-.244.797-.356l.127-.028c.14-.032.21-.048.266-.09c.056-.043.092-.108.164-.237z"/><path stroke-linecap="round" d="M4 21.388h2.26c1.01 0 2.033.106 3.016.308a14.9 14.9 0 0 0 5.33.118m-.93-3.297q.18-.021.345-.047c.911-.145 1.676-.633 2.376-1.162l1.808-1.365a1.89 1.89 0 0 1 2.22 0c.573.433.749 1.146.386 1.728c-.423.678-1.019 1.545-1.591 2.075m-5.544-1.229l-.11.012m.11-.012a1 1 0 0 0 .427-.24a1.49 1.49 0 0 0 .126-2.134a1.9 1.9 0 0 0-.45-.367c-2.797-1.669-7.15-.398-9.779 1.467m9.676 1.274a.5.5 0 0 1-.11.012m0 0a9.3 9.3 0 0 1-1.814.004"/></g>
+						</svg>
+							<h5 class="text-2xl font-almasmak">
+								قيمنا
+							</h5>
+						<ul class="mb-3 font-normal font-ibm grid grid-cols-2 gap-4">
+							<li class="text-sm text-balance"><h3 class="text-lg font-almasmak">الشفافية</h3> نلتزم بالوضوح في جميع ممارساتنا وأعمالنا.</li>
+							<li class="text-sm text-balance"><h3 class="text-lg font-almasmak">المسؤولية</h3> نؤمن بواجبنا تجاه المجتمع وتحقيق الأثر الإيجابي.</li>
+							<li class="text-sm text-balance"><h3 class="text-lg font-almasmak">الاستدامة</h3> نعمل على تحقيق مشاريع طويلة الأمد تضمن استمرارية الأثر الإيجابي.</li>
+							<li class="text-sm text-balance"><h3 class="text-lg font-almasmak">التعاون</h3> نبني شراكات استراتيجية مع الجهات الحكومية والخاصة لتحقيق أهدافنا.</li>
+						</ul>
+						<!-- <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+							See our guideline
+							<svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+							</svg>
+						</a> -->
+					</div>
+				</div>
+			</li>
+
+		</ul>
+	</section>
+	<section class="sm:px-16 xl:px-48 p-4">
+		<hgroup>
+			<h2 class="text-4xl font-extrabold font-almasmak">
+				أهدافنا الإنسانية
+			</h2>
+			<h3 class="text-2xl mt-2 font-ibm">
+				إحداث أثر مستدام
+			</h3>
+		</hgroup>
+		
+		<ul class="grid grid-cols-1 md:grid-cols-2">
+			<li class="p-2 my-3 md:col-span-2" data-aos="fade-up">
+				<div>
+					<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+						<svg class="size-7 mb-2" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+							<path fill="currentColor" d="M19.717 20.362C21.143 19.585 22 18.587 22 17.5c0-1.152-.963-2.204-2.546-3C17.623 13.58 14.962 13 12 13s-5.623.58-7.454 1.5C2.963 15.296 2 16.348 2 17.5s.963 2.204 2.546 3C6.377 21.42 9.038 22 12 22c3.107 0 5.882-.637 7.717-1.638" opacity=".6"/><path fill="currentColor" fill-rule="evenodd" d="M9.25 4a2.75 2.75 0 1 1 5.5 0a2.75 2.75 0 0 1-5.5 0" clip-rule="evenodd"/><path fill="currentColor" d="m8.223 11.574l-2.175-.725a1.532 1.532 0 0 1 .805-2.952l1.898.407l.21.044a15 15 0 0 0 6.288-.044l1.897-.407a1.532 1.532 0 0 1 .806 2.952l-2.175.725c-.263.088-.394.132-.493.193a1 1 0 0 0-.466.986c.016.115.066.244.165.503l1.247 3.242a1.473 1.473 0 0 1-2.654 1.26L12 15l-1.576 2.757a1.473 1.473 0 0 1-2.654-1.26l1.247-3.241c.1-.259.149-.388.165-.503a1 1 0 0 0-.466-.986c-.099-.061-.23-.105-.493-.193"/>
+						</svg>
+							<h5 class="text-2xl font-almasmak">
+								تمكين الإنسان وبناء القدرات
+							</h5>
+						<ul class="p-3 font-ibm list-disc">
+							<li class="text-lg font-medium my-3">
+								الاستثمار في تطوير الأفراد من خلال برامج تعليمية مبتكرة تهدف إلى تحقيق تنمية مستدامة طويلة الأمد.
+							</li>
+							<li class="text-lg font-medium my-3">
+								دعم الكوادر الوطنية الشابة لتأهيلهم لسوق العمل عبر برامج تدريبية متخصصة.
+							</li>
+							<li class="text-lg font-medium my-3">
+								تقديم منح تعليمية موجهة بعناية للطلاب المتميزين من الأسر ذات الدخل المحدود، لضمان استمرار التعليم كحق أساسي.
+							</li>
+						</ul>
+						<!-- <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+							See our guideline
+							<svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+							</svg>
+						</a> -->
+					</div>
+				</div>
+			</li>
+			<li class="p-2 my-3 md:col-span-2" data-aos="fade-up">
+				<div>
+					<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+						<svg  class="size-7 mb-2" viewBox="0 0 24 24">
+							<g fill="none"><path stroke="currentColor" stroke-width="1.5" d="M17 22v-6c0-1.886 0-2.828-.586-3.414S14.886 12 13 12h-2c-1.886 0-2.828 0-3.414.586S7 14.114 7 16v6"/><path stroke="currentColor" stroke-width="1.5" d="M21 22V7.772c0-1.34 0-2.011-.356-2.525s-.984-.75-2.24-1.22c-2.455-.921-3.682-1.381-4.543-.785C13 3.84 13 5.15 13 7.772V12" opacity=".5"/><path fill="currentColor" d="M3.25 8a.75.75 0 0 0 1.5 0zm6 0a.75.75 0 0 0 1.5 0zm.457-3.207l-.53.53zM6.25 4a.75.75 0 0 0 1.5 0zm1.5-2a.75.75 0 0 0-1.5 0zm-4 20V12h-1.5v10zM7 8.75c.964 0 1.612.002 2.095.067c.461.062.659.169.789.3l1.06-1.062c-.455-.455-1.022-.64-1.65-.725c-.606-.082-1.372-.08-2.294-.08zM11.75 12c0-.922.002-1.688-.08-2.294c-.084-.628-.27-1.195-.726-1.65l-1.06 1.06c.13.13.237.328.3.79c.064.482.066 1.13.066 2.094zM7 7.25c-.922 0-1.688-.002-2.294.08c-.628.084-1.195.27-1.65.725l1.06 1.061c.13-.13.328-.237.79-.3c.482-.064 1.13-.066 2.094-.066zM3.75 12c0-.964.002-1.612.067-2.095c.062-.461.169-.659.3-.789l-1.062-1.06c-.455.455-.64 1.022-.725 1.65c-.082.606-.08 1.372-.08 2.294zm1-4V6.5h-1.5V8zM6 5.25h2v-1.5H6zM9.25 6.5V8h1.5V6.5zM8 5.25c.493 0 .787.002.997.03a.7.7 0 0 1 .18.043l1.06-1.06c-.309-.31-.684-.422-1.04-.47C8.863 3.748 8.45 3.75 8 3.75zm2.75 1.25c0-.45.002-.863-.043-1.197c-.048-.356-.16-.731-.47-1.04l-1.06 1.06l.001.003l.005.01c.009.022.024.07.037.167c.028.21.03.504.03.997zm-6 0c0-.493.002-.787.03-.997a.7.7 0 0 1 .043-.18l-1.06-1.06c-.31.309-.422.684-.47 1.04c-.045.334-.043.747-.043 1.197zM6 3.75c-.45 0-.863-.002-1.197.043c-.356.048-.731.16-1.04.47l1.06 1.06l.003-.001l.01-.005a.7.7 0 0 1 .167-.037c.21-.028.504-.03.997-.03zM7.75 4V2h-1.5v2z" opacity=".5"/><path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M22 22H2"/><path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M10 15h4m-4 3h4" opacity=".5"/></g>
+						</svg>
+						<a href="#">
+							<h5 class="text-2xl font-almasmak">
+								تحسين جودة الحياة
+							</h5>
+						</a>
+						<ul class="p-3 font-ibm list-disc">
+							<li class="text-lg font-medium my-3">
+								توفير حلول مبتكرة لتحسين جودة الحياة للأسر المحتاجة من خلال مشاريع إسكانية تلبي المعايير الصحية والبيئية الحديثة.
+							</li>
+							<li class="text-lg font-medium my-3">
+								دعم الاستقرار الأسري عبر بيئة معيشية متكاملة تشمل الإسكان والخدمات الأساسية.
+							</li>
+							<li class="text-lg font-medium my-3">
+								توفير فرص عمل من خلال مشاريع تنموية تسهم في تحقيق الاستقلال المالي للأسر.
+							</li>
+						</ul>
+						<!-- <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+							See our guideline
+							<svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+							</svg>
+						</a> -->
+					</div>
+				</div>
+			</li>
+			<li class="p-2 my-3 md:col-span-2" data-aos="fade-up">
+				<div>
+					<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+						<svg class="size-7 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path fill="currentColor" d="M2 9.318c0 3.729 4.02 7.673 6.962 10.06C10.294 20.46 10.96 21 12 21s1.706-.54 3.038-1.621C17.981 16.99 22 13.047 22 9.317c0-6.23-5.5-8.556-10-3.743C7.5.761 2 3.087 2 9.318" opacity=".5"/><path fill="currentColor" fill-rule="evenodd" d="M16.5 6.25a.75.75 0 0 1 .75.75v1.25h1.25a.75.75 0 0 1 0 1.5h-1.25V11a.75.75 0 0 1-1.5 0V9.75H14.5a.75.75 0 0 1 0-1.5h1.25V7a.75.75 0 0 1 .75-.75" clip-rule="evenodd"/>
+						</svg>
+						<a href="#">
+							<h5 class="text-2xl font-almasmak">
+								تعزيز الصحة والرفاهية
+							</h5>
+						</a>
+						<ul class="p-3 font-ibm list-disc">
+							<li class="text-lg font-medium my-3">
+								دعم المراكز الصحية والمستشفيات في المناطق النائية لتوفير رعاية صحية متكاملة.
+							</li>
+							<li class="text-lg font-medium my-3">
+								إطلاق حملات وقائية وتوعوية صحية تستهدف الفئات الأكثر احتياجًا.
+							</li>
+							<li class="text-lg font-medium my-3">
+								توفير الأجهزة والمعدات الطبية المتقدمة لدعم النظام الصحي الوطني.
+							</li>
+						</ul>
+						<!-- <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+							See our guideline
+							<svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+							</svg>
+						</a> -->
+					</div>
+				</div>
+			</li>
+			<li class="p-2 my-3 md:col-span-2" data-aos="fade-up">
+				<div>
+					<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+						<svg class="size-7 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M2.75 12a4.25 4.25 0 0 1 6.8-3.4a.75.75 0 1 0 .901-1.2A5.75 5.75 0 1 0 7 17.75c.784 0 1.464-.143 2.064-.435s1.079-.714 1.489-1.215c.66-.804 1.196-1.894 1.776-3.074l.339-.689a.755.755 0 0 0-.339-1.008a.745.745 0 0 0-1.003.337l-.366.743c-.584 1.183-1.027 2.082-1.567 2.74c-.307.375-.624.64-.986.817s-.81.284-1.407.284A4.25 4.25 0 0 1 2.75 12" clip-rule="evenodd"/><path fill="currentColor" d="M12.67 12.335a.755.755 0 0 0-.34-1.006a.746.746 0 0 0-.975.284q.162-.323.316-.639c.58-1.18 1.117-2.27 1.776-3.074c.41-.501.89-.923 1.49-1.215S16.217 6.25 17 6.25a5.75 5.75 0 1 1-3.45 10.35a.75.75 0 0 1 .9-1.2A4.25 4.25 0 1 0 17 7.75c-.596 0-1.045.107-1.406.284c-.363.176-.68.442-.987.816c-.54.66-.983 1.558-1.567 2.741q-.174.355-.369.744z" opacity=".5"/>
+						</svg>
+						<a href="#">
+							<h5 class="text-2xl font-almasmak">
+								المسؤولية الاجتماعية المستدامة
+							</h5>
+						</a>
+						<ul class="p-3 font-ibm list-disc">
+							<li class="text-lg font-medium my-3">
+								إطلاق برامج تنموية شاملة تهدف إلى تمكين المرأة والشباب كأركان رئيسية لبناء المجتمع.
+							</li>
+							<li class="text-lg font-medium my-3">
+								دعم المشاريع الصغيرة والمتوسطة لتحقيق الاكتفاء الذاتي وتعزيز ريادة الأعمال المجتمعية.
+							</li>
+							<li class="text-lg font-medium my-3">
+								إقامة شراكات استراتيجية مع الجهات الحكومية والخاصة لضمان استمرارية الأثر الإيجابي على المجتمع.
+							</li>
+						</ul>
+						<!-- <a href="#" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+							See our guideline
+							<svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+								<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+							</svg>
+						</a> -->
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+	<section class="sm:px-16 xl:px-48 p-4">
+			<h2 class="text-4xl font-extrabold font-almasmak">
+				كلمة المؤسس
+			</h2>
+		<div class="mt-6" data-aos="fade-down">
+			<div class="p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+				<svg class="size-9 mb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16.652 3.455s.081 1.379 1.298 2.595c1.216 1.217 2.595 1.298 2.595 1.298M10.1 15.588L8.413 13.9" opacity=".5"/><path d="m16.652 3.455l.649-.649A2.753 2.753 0 0 1 21.194 6.7l-.65.649l-5.964 5.965c-.404.404-.606.606-.829.78a4.6 4.6 0 0 1-.848.524c-.255.121-.526.211-1.068.392l-1.735.579l-1.123.374a.742.742 0 0 1-.939-.94l.374-1.122l.579-1.735c.18-.542.27-.813.392-1.068q.217-.453.524-.848c.174-.223.376-.425.78-.83z"/><path stroke-linecap="round" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2" opacity=".5"/></g>
+				</svg>
+				<p>
+					<q class="font-watad text-md lg:text-lg">
+						لقد أُتيحت لي فرصة ترك إرث يتجاوز حدود
+						 النجاح التجاري؛ إرث مبني على فكرة
+						  أن النجاح الحقيقي ليس له معنى ما لم يساعد الآخرين.
+						  إن رؤية هذه المؤسسة مستوحاة من تعاليم الإسلام الوسطي السامية 
+						 التي تحث على العطاء ومساعدة المحتاجين. إن كل خطوة نخطوها في 
+						 مؤسسة أثر الإنسانية هي جزء من حلم أكبر لتحقيق مستقبل مشرق لكل من يستحق.
+					</q>
+					<cite class="block text-sm font-ibm font-bold mt-3">
+						—
+						<span class="font-light">المؤسس:</span>
+						فهد الفواز
+					</cite>
+				</p>
+			</div>
+		</div>
+	</section>
+	<section class="sm:px-16 xl:px-48 p-4">
+		<hgroup>
+			<h2 class="text-4xl font-extrabold font-almasmak">
+				الإمتنان
+			</h2>
+			<h3 class="text-xl mt-2 font-ibm">
+				رسائل إمتنان من المؤسس
+			</h3>
+		</hgroup>
+		<div>
+			<svg class="w-8 h-8 text-secondary-color-2 mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+				<path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"/>
+			</svg>
+			<div class="flex justify-center items-center" 
+			x-data="{
+				next: emblaApi.canScrollNext(),
+				prev: emblaApi.canScrollPrev(),
+				currentSlide: 0,
+				initEmbla() {
+				// Check for emblaApi availability
+				if (typeof emblaApi !== 'undefined') {
+					emblaApi.on('select', () => {
+						const theCurrentSlide = emblaApi.selectedScrollSnap();
+						this.currentSlide = theCurrentSlide;
+						this.next = emblaApi.canScrollNext();
+						this.prev = emblaApi.canScrollPrev();
+					});
+
+					// Initial state setup
+					this.next = emblaApi.canScrollNext();
+					this.prev = emblaApi.canScrollPrev();
+					}
+				},
+				toggle(direction) { 
+				  direction === 'next' && emblaApi.canScrollNext() && (emblaApi.scrollNext());
+				  direction === 'prev' && emblaApi.canScrollPrev() && (emblaApi.scrollPrev());
+				  this.next = emblaApi.canScrollNext();
+				  this.prev = emblaApi.canScrollPrev();
+				}
+			  }"
+			  x-effect="console.log(currentSlide)"
+			  x-init="
+					// Try to initialize immediately
+					initEmbla();
+				"
+			>
+				<button class="cursor-pointer disabled:opacity-10" :disabled="!prev" @click="toggle('prev')">
+					<svg class="size-8" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
+						<g fill="none"><path fill="currentColor" d="M4 11.25a.75.75 0 0 0 0 1.5zm0 1.5h16v-1.5H4z" opacity=".5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m14 6l6 6l-6 6"/></g>
+					</svg>
+				</button>
+				
+				<hr class="border w-12 mx-6" />
+				<button class="cursor-pointer disabled:opacity-10" :disabled="!next" @click="toggle('next')">
+					<svg class="size-8" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
+						<g fill="none"><path fill="currentColor" d="M20 12.75a.75.75 0 0 0 0-1.5zm0-1.5H4v1.5h16z" opacity=".5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m10 6l-6 6l6 6"/></g>
+					</svg>
+				</button>
+			</div>
+			<div class="embla">
+				<div class="embla__container text-7xl">
+				  <div class="embla__slide">
+					<blockquote class="text-xl font-watad text-gray-900">
+						<hgroup class="text-center">
+							<h2>
+								الرسالة الاولى
+							</h2>
+							<h3>
+								رسالة امتنان إلى الله عز وجل
+							</h3>
+						</hgroup>
+						<p class="font-ibm text-sm lg:text-base">
+							الحمد لله رب العالمين، الذي بنعمته تتم الصالحات، وبفضله تهون الصعاب، وبكرمه تتنزل الرحمات.
+							<br />
+							يا الله، يا من أغدقت عليَّ من فضلك وكرمك ما لا أستطيع إحصاءه، يا من وهبتني القوة لأتجاوز المحن، واليقين لأواجه التحديات، والحكمة لأخطو بثبات في دروب الحياة.
+							<br />
+							لك الحمد على كل نَفَسٍ وهبتني إياه، وعلى كل خطوة خطوتها نحو الخير، وعلى كل قلب نبض بالعطاء من خلالي.
+							<br />
+							يا الله، أشكرك على أن سخرت لي أسباب النجاح، وأكرمتني برؤية ثمرة جهدي تنمو وتزهر في حياة الآخرين. أشكرك على أن منحتني الشجاعة لأحلم، والعزيمة لأعمل، والتوفيق لأحقق.
+							<br />
+							يا من لا ترد الدعاء، أسألك أن تجعل كل عمل أقوم به خالصًا لوجهك الكريم، وأن تجعل أثري ممتدًا بالخير في حياة كل محتاج، وكل يتيم، وكل مكلوم.
+							<br />
+							يا الله، اجعل هذه المؤسسة واحة خير، وساحة عطاء، ومنارة أمل لكل من ضاق به الطريق. اجعلها بابًا أطرق به الجنة، وذخرًا ألقاك به يوم لا ينفع مال ولا بنون إلا من أتى الله بقلب سليم.
+							<br />
+							اللهم لك الحمد حتى ترضى، ولك الحمد إذا رضيت، ولك الحمد بعد الرضا.
+							<br />
+							“ربِّ اجعلني مقيم الصلاة ومن ذريتي، ربنا وتقبل دعاء.”
+						</p>
+					</blockquote>
+				  </div>
+				  <div class="embla__slide">
+					<blockquote class="text-xl font-watad text-gray-900">
+						<hgroup class="text-center">
+							<h2>
+								الرسالة الثانية
+							</h2>
+							<h3>
+								رسالة امتنان إلى أمي الغالية
+							</h3>
+							<h3>
+								منيرة بنت ثنيان الثنيان
+							</h3>
+						</hgroup>
+						<p class="font-ibm text-sm lg:text-base">
+							إلى من كانت لي السند بعد الله، إلى من حملتني في قلبها قبل ذراعيها، إلى أمي الغالية منيرة بنت ثنيان الثنيان،
+							<br />
+							يا منيرة دربي ونور حياتي، كنتِ الأم والأب، المعلمة والقدوة، والحضن الدافئ الذي ألجأ إليه كلما ضاقت بي السبل. لم يكن الطريق سهلاً، لكنكِ مضيتِ فيه بثبات وقوة، كنتِ الصبر الذي يُدرّس، والتضحية التي تُحكى للأجيال.
+							<br /><br />
+							إن ما تقدمه مؤسسة أثر اليوم هو امتداد لقيمكِ الأصيلة التي غرستِها في قلبي منذ الصغر. كان لعطائكِ غير المحدود، وتضحياتكِ التي لا تُحصى، الأثر الأكبر في بناء شخصيتي وتشكيل مبادئي. تعلمتُ منكِ أن العطاء الحقيقي لا ينتظر مقابلاً، وأن الخير يبقى أثره خالدًا مهما مر الزمان.
+							<br />
+							<br />
+							تحملتِ أعباء الحياة بصمت، وواجهتِ الصعاب بقلب مؤمن وابتسامة مطمئنة. لم تشتكي يومًا ولم تتخاذلي عن أداء رسالتكِ كأم عظيمة. لقد زرعتِ في داخلي حب الخير والعمل الصادق، وألهمتني أن أجعل من كل خطوة أخطوها أثرًا طيبًا يبقى بعدي.
+							<br />
+							<br />
+							إن مؤسسة أثر ليست مجرد مبادرة خيرية، بل هي انعكاس حقيقي لتربيتكِ لي، وقيمكِ التي ستظل نبراسًا يضيء طريقنا. نجاح هذه المؤسسة هو جزء من عطائكِ المستمر، وهو رسالة حب ووفاء لكِ ولكل أم ضحت وسهرت وربّت لتصنع إنسانًا صالحًا يخدم مجتمعه.
+							<br />
+							<br />
+							أعدكِ يا أمي أن أواصل هذا الأثر، وأن تكون كل مبادرة وكل مشروع في مؤسسة أثر شاهدًا على تضحياتكِ وعطائكِ. أسأل الله أن يحفظكِ ويرزقكِ سعادة لا تنقطع، وأن يجعل كل ما قدمتِه لي في ميزان حسناتكِ.
+							<br />
+							<br />
+							<br />
+							<span class="font-ibm font-bold">
+								— 
+								ابنكِ المحب والممتن، 
+							فهد
+							</span>
+						</p>
+					</blockquote>
+				  </div>
+				  <div class="embla__slide">
+					<blockquote class="text-xl font-watad text-gray-900">
+						<hgroup class="text-center">
+							<h2>
+								الرسالة الثالثة
+							</h2>
+							<h3>
+								رسالة امتنان وعرفان
+							</h3>
+						</hgroup>
+						<p class="font-ibm text-sm lg:text-base">
+						وسط مسيرتي في بناء هذا الصرح الخيري، أجد نفسي مدينًا بالشكر والعرفان لزوجتي العزيزة مها بنت عبدالله الحديثي، التي كانت ولا تزال سندي وركيزة استقراري، وملاذي الدافئ في أوقات التحديات. لقد كانت كلماتها المشجعة ولمساتها الحانية هي الوقود الذي دفعني للمضي قدمًا بكل قوة وثقة.
+						<br /><br />
+						إلى بناتي الغاليات: منيرة، والعنود، وسارة، أنتن نور حياتي وسر سعادتي. أرى فيكن المستقبل الزاهر، وأستمد منكن الأمل والإصرار. إن دعمكن وصبركن على غيابي في أوقات العمل والسفر لأجل هذه المؤسسة هو جزء أساسي من هذا النجاح.
+						<br /><br />
+						لقد كنتن دائمًا مصدر إلهامي، وأعدكن بأن يبقى هذا الإرث الخيري شاهدًا على حبنا العميق، ورسالة نبعثها معًا لخدمة المجتمع والإسهام في بناء مستقبل أفضل.
+						<br /><br />
+						أسأل الله أن يبارك فيكن ويحفظكن من كل سوء، وأن يوفقكن لتحقيق أحلامكن، تمامًا كما دعمتن أحلامي.
+						<br />
+						<br />
+						<span class="font-ibm font-bold">
+							— 
+							محبكم،
+						فهد
+						</span>
+						</p>
+					</blockquote>
+				  </div>
+				  <div class="embla__slide">
+					<blockquote class="text-xl font-watad text-gray-900">
+						<hgroup class="text-center">
+							<h2>
+								الرسالة الرابعة
+							</h2>
+							<h3>
+								إلى روح جدتي الغالية
+							</h3>
+							<h3>
+								نهية بنت عبدالعزيز المعيذر (رحمها الله)
+							</h3>
+						</hgroup>
+						<p class="font-ibm text-sm lg:text-base">							
+						إلى من كانت نورًا أضاء دروب طفولتي، وحنانًا غمر أيامي، وابتسامةً صافية ملأت قلبي بالطمأنينة… إلى جدتي الحبيبة نهية بنت عبد العزيز المعيذر (رحمها الله).
+						<br /><br />
+						رحلتِ عن دنيانا، لكن ذكراكِ لا تزال نابضةً في قلبي، وسيرتكِ العطرة تتردد في أذني مع كل عمل خير أقدّم عليه، ومع كل لحظة أتأمل فيها الأثر الذي تركتِه في حياتي. كنتِ لي حضنًا دافئًا، وملاذًا آمنًا، وكنزًا من الحكمة والصبر.
+						<br /><br />
+						أتذكر دعواتكِ الصادقة، كلماتكِ الطيبة التي كانت تُشعرني أن الدنيا مهما قست، فهي أهون بدعواتكِ الصافية. كنتِ تؤمنين أن الخير لا ينقطع أجره أبدًا، وأن العطاء هو البصمة التي تبقى بعد الرحيل.
+						<br /><br />
+						مؤسسة أثر هي امتداد لتلك القيم النبيلة التي غرستِها فينا، وهي محاولة متواضعة لأجعل من أعمال الخير التي أقوم بها جسرًا يصلني بكِ في جنات الخلد بإذن الله. أرجو أن يكون كل مشروع خيري وكل يد مساعدة نمدها باسم المؤسسة صدقة جارية في ميزان حسناتكِ، ورحمةً تهطل على روحكِ الطاهرة.
+						<br /><br />
+						جدتي الحبيبة، أعدكِ أن أبذل كل جهدي لأجعل مؤسسة أثر منارةً للخير، وأثرًا يبقى ويمتد، يضيء دروب المحتاجين، ويُسعد قلوبهم، ليكون كل ذلك دعوة مستجابة ترفع مقامكِ في دار البقاء.
+						<br /><br />
+						أسأل الله العظيم أن يرحمكِ بواسع رحمته، ويغفر لكِ، ويجمعني بكِ في جنات النعيم، حيث لا فراق ولا وداع.
+						<br /><br />
+						رحمكِ الله يا جدتي، وأسكنكِ الفردوس الأعلى من الجنة.
+						<br /><br />
+							<span class="font-ibm font-bold">
+								— 
+								محبكِ للأبد: فهد
+							</span>
+						</p>
+					</blockquote>
+				  </div>
+				</div>
+			  </div>
+		</div>
+	</section>
 </Layout>
+<style is:global>
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+</style>

@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@config "../tailwind.config.mjs";
+
+@layer base {
+    @font-face {
+      font-family: 'Montserrat';
+      src: url('/fonts/Montserrat-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+  }
+  
+  @font-face {
+      font-family: 'Montserrat';
+      src: url('/fonts/Montserrat-Light.otf') format('opentype');
+      font-weight: 300;
+      font-display: swap;
+  }
+  
+  @font-face {
+      font-family: 'Montserrat';
+      src: url('/fonts/Montserrat-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-display: swap;
+  }
+  
+  @font-face {
+      font-family: 'Montserrat';
+      src: url('/fonts/Montserrat-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-display: swap;
+  }
+  
+  @font-face {
+      font-family: 'Koodak';
+      src: url('/fonts/koodak.ttf') format('truetype');
+      font-weight: 400;
+      font-display: swap;
+  }
+  
+  @font-face {
+      font-family: 'Watad';
+      src: url('/fonts/Watad Regular.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Almasmak';
+    src: url('/fonts/almasmak_font.otf') format('opentype');
+    font-weight: 400; /* Or specify a different weight if needed */
+    font-display: swap;
+  }
+  
+  }
