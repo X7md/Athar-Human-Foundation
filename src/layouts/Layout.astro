@@ -1,23 +1,22 @@
 ---
 import "../style.css";
 
-const bar =
-[{
- ar: "التوثيق الإعلامي",
- en: "Media Documentation",
- url: "/"
+const bar = [{
+    ar: "التوثيق الإعلامي",
+    en: "Media Documentation",
+    url: "/media-documentation"
 },
 {
- ar: "خاصة",
- en: "Special",
- url: "/"
+    ar: "خاصة",
+    en: "Special",
+    url: "/special"
 },
 {
- ar: "تطوع معنا",
- en: "Volunteer With Us",
- url: "/"
-},
-]
+    ar: "تطوع معنا",
+    en: "Volunteer With Us",
+    url: "/volunteer-with-us"
+}];
+
 
 interface Props {
   lang?: string;
@@ -63,7 +62,7 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 							{
 								bar.map(item => {
 									return (
-										<li><a href="#">{
+										<li><a href={lang === 'en' ? `/en${item.url}` : item.url}>{
 											//@ts-expect-error
 											item[lang]
 											}</a></li>
@@ -99,7 +98,7 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 										bar.map(item => {
 											return (
 												<li>
-													<a href="#">
+													<a href={lang === 'en' ? `/en${item.url}` : item.url}>
 													{
 													//@ts-expect-error
 													item[lang]
@@ -150,7 +149,7 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 			   <div class="sm:flex sm:items-center sm:justify-between font-ibm">
 			      <span class="text-sm text-gray-500 sm:text-center ">
 								{lang === 'ar' ? 'جميع الحقوق محفوظة، ' : 'All rights reserved, '}
-								<span class="font-koodak">{lang === 'ar' ? 'مؤسسة أثر الإنسانية' : 'Athar Human Foundation'}</span> 2025<a href="/" class="hover:underline"></a>©.
+								<span class="font-koodak">{lang === 'ar' ? 'مؤسسة أثر الإنسانية' : 'Athar Humanitarian Foundation'}</span> 2025<a href="/" class="hover:underline"></a>©.
 			        </span>
 			        <div class="flex mt-4 sm:justify-center sm:mt-0">
 								{lang === 'en' && <span class="text-gray-500 me-4">Follow Us on Social Media:</span>}
@@ -185,6 +184,7 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 		<script is:inline src="https://cdn.jsdelivr.net/npm/@reimujs/aos/dist/aos.umd.js"></script>
 		<script is:inline src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
 		<script is:inline src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
+		<script is:inline src="https://unpkg.com/embla-carousel-auto-height/embla-carousel-auto-height.umd.js"></script>
 		<script is:inline data-i={Astro.url.pathname}>
 			AOS.init();
 		</script>
@@ -192,10 +192,24 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 		(Astro.url?.pathname.startsWith("/") || Astro.url.pathname?.startsWith("/en")) &&(<script is:inline  type="text/javascript">
 			const emblaNode = document.querySelector('.embla')
 			const options = { loop: false, direction: document.dir === 'rtl' ? 'rtl' : 'ltr' }
-			const plugins = [EmblaCarouselAutoplay({delay: 8000})]
+			const plugins = [EmblaCarouselAutoplay({delay: 8000}), EmblaCarouselAutoHeight()]
 			const emblaApi = EmblaCarousel(emblaNode, options, plugins)
 		</script>)
 		}
 	</body>
 </html>
 
+<style is:global>
+	.embla {
+	  overflow: hidden;
+	}
+	.embla__container {
+	  transition: height 0.2s;
+	  display: flex;
+	  align-items: flex-start; /* Add this */
+	}
+	.embla__slide {
+	  flex: 0 0 100%;
+	  min-width: 0;
+	}
+</style>

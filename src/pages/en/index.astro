@@ -504,16 +504,102 @@ import Layout from '../../layouts/Layout.astro';
                           </div> 
                     </div> 
                 </section>
+	<section class="sm:px-16 xl:px-48 p-4">
+        <hgroup>
+            <h2 class="text-4xl font-extrabold font-almasmak">
+                Programs and Initiatives
+            </h2>
+            <p class="mt-4 text-lg font-ibm">
+                The programs and initiatives at Athar Humanitarian Foundation are designed to align with its vision and mission, inspired by the saying of Allah in Surah Al-Baqarah, Ayah 177:
+            </p>
+            <p class="my-6 text-xl font-watad leading-loose text-balance">
+                "Righteousness is not that you turn your faces toward the east or the west, but [true] righteousness is in one who believes in Allah, the Last Day, the Angels, the Book, and the Prophets and gives his wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, those who ask [for help], and for freeing slaves; and [who] establishes prayer and gives zakah; [who] fulfill their promise when they promise; and [who] are patient in poverty and hardship and during battle. Those are the ones who have been true, and it is those who are the righteous."
+            </p>
+        </hgroup>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+                {
+                    name: "Mithqal",
+                    description: "Providing support to orphans and needy families"
+                },
+                {
+                    name: "Together",
+                    description: "Supporting talented Saudi youth through scholarships, mentoring, and financing to enhance innovation"
+                },
+                {
+                    name: "Sakina",
+                    description: "Providing housing and support for marginalized groups"
+                },
+                {
+                    name: "Saqiya",
+                    description: "Contributing to projects that provide clean drinking water to needy communities"
+                },
+                {
+                    name: "Qurbah",
+                    description: "Providing housing for the relatives of the founder, Fahad Al-Fawaz, to ensure they live with dignity"
+                },
+                {
+                    name: "Imara",
+                    description: "Restoring and maintaining mosques and community spaces"
+                },
+                {
+                    name: "Areeq",
+                    description: "Promoting the preservation of the rich cultural heritage of the Kingdom of Saudi Arabia in collaboration with the Ministry of Culture"
+                },
+                {
+                    name: "Badiyah",
+                    description: "Protecting and promoting Bedouin heritage"
+                },
+                {
+                    name: "Furqan",
+                    description: "Supporting the education and memorization of the Holy Quran and promoting Islamic education"
+                },
+                {
+                    name: "Iftar",
+                    description: "Providing meals during the holy month of Ramadan for those in need"
+                },
+                {
+                    name: "Sabeel",
+                    description: "Establishing rest stations on main roads offering fresh meals around the clock and smart shelters"
+                },
+                {
+                    name: "Dhad",
+                    description: "Promoting and enhancing the Arabic language in partnership with the Ministry of Education and the Ministry of Culture"
+                },
+                {
+                    name: "Ihsan",
+                    description: "Providing direct financial contributions in partnership with the Ihsan Platform"
+                },
+                {
+                    name: "Mawruath",
+                    description: "Supporting research and development to preserve and enhance pure Arabian breeds of camels and horses"
+                },
+                {
+                    name: "Manasik",
+                    description: "Facilitating Hajj and Umrah programs in partnership with the Ministry of Hajj and Umrah"
+                },
+                {
+                    name: "Fitrah",
+                    description: "Promoting awareness and disseminating the moderate teachings of Islam in Africa"
+                },
+                {
+                    name: "Dhiya",
+                    description: "Supporting and rehabilitating prisoners in partnership with the Ministry of Interior"
+                },
+                {
+                    name: "Afiah",
+                    description: "Providing healthcare and medical assistance for the needy"
+                },
+                {
+                    name: "Qudrah",
+                    description: "Supporting employment opportunities and empowerment for persons with disabilities"
+                }
+            ].map(program => (
+                <div class="p-4 bg-white rounded-lg shadow-sm border" data-aos="fade-up">
+                    <h3 class="text-2xl font-almasmak mb-2">{program.name}</h3>
+                    <p class="font-ibm">{program.description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
 </Layout>
-<style is:global>
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-}
-</style>
