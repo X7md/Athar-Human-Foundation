@@ -72,7 +72,7 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 		<meta name="msapplication-TileColor" content="#000000">
 		<meta name="generator" content={Astro.generator} />
 		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-		<title>مؤسسة أثر الإنسانية</title>
+		<title>{(lang == 'en') ? 'Athar Humanitarian Foundation' : 'مؤسسة أثر الإنسانية'} </title>
 	</head>
 	<body class="text-primary-color-1 bg-white" data-test>
 		<main class="max-w-screen container">
