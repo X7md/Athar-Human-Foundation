@@ -2,7 +2,8 @@
 import "../style.css";
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
-const bar = [{
+const bar = [
+{
     ar: "التوثيق الإعلامي",
     en: "Media Documentation",
     url: "/media-documentation"
@@ -13,10 +14,16 @@ const bar = [{
     url: "/special"
 },
 {
+    ar: "البرامج والمبادرات",
+    en: "Programs and Initiatives",
+    url: "/programs-and-initiatives"
+},
+{
     ar: "تطوع معنا",
     en: "Volunteer With Us",
     url: "/volunteer-with-us"
-}];
+}
+];
 
 const supportedLanguages = [
   { code: 'ar', path: '/' },
@@ -68,11 +75,11 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 		<title>مؤسسة أثر الإنسانية</title>
 	</head>
 	<body class="text-primary-color-1 bg-white" data-test>
-		<main class="container">
+		<main class="max-w-screen container">
 			<header class="flex justify-center sticky my-6 top-5 z-20">
 				<nav class="w-[95%] relative rounded-lg bg-primary-color-1 min-h-16 flex justify-between md:px-12 px-4 py-3 gap-4 items-center">
 					<div class="flex">
-						<a href="/">
+						<a href={lang === 'en' ? `/en/` : '/'}>
 								<img class="max-h-[56px]" src="/Logo with slogan-01.svg" /> 
 						</a>
 	

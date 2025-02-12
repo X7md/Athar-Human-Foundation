@@ -10,7 +10,7 @@ import Layout from '../../layouts/Layout.astro';
 		<h3 class="font-ibm text-4xl text-balance font-black">
 			Welcome
 		</h3>
-		<h1 class="mb-4 text-4xl text-balance font-watad leading-none md:text-5xl lg:text-6xl p-4">
+		<h1 class="mb-4 text-4xl font-watad leading-none md:text-5xl lg:text-6xl p-4">
 			 to Athar Humanitarian Foundation
 		</h1>
 		</hgroup>
@@ -28,7 +28,7 @@ import Layout from '../../layouts/Layout.astro';
 		</a> -->
 	</section>
 	<section class="sm:px-16 xl:px-48 p-4">
-		<h2 class="text-4xl font-extrabold font-bold">
+		<h2 class="text-4xl font-bold">
 			Who we are?
 		</h2>
 		<ul class="grid grid-cols-1 md:grid-cols-2">
@@ -101,7 +101,7 @@ import Layout from '../../layouts/Layout.astro';
 	</section>
 	<section class="sm:px-16 xl:px-48 p-4">
                 <hgroup>
-                    <h2 class="text-4xl font-extrabold font-bold">
+                    <h2 class="text-4xl font-bold">
                          Our Humanitarian Goals
                     </h2>
                     <h3 class="text-2xl mt-2 font-ibm">
@@ -210,7 +210,7 @@ import Layout from '../../layouts/Layout.astro';
                 </ul>
             </section>
             <section class="sm:px-16 xl:px-48 p-4">
-                    <h2 class="text-4xl font-extrabold font-bold">
+                    <h2 class="text-4xl font-bold">
                         Message from the Founder
                     </h2>
                 <div class="mt-6" data-aos="fade-down">
@@ -238,7 +238,7 @@ import Layout from '../../layouts/Layout.astro';
             </section>
         <section class="sm:px-16 xl:px-48 p-4"> 
                     <hgroup> 
-                        <h2 class="text-4xl font-extrabold font-bold"> 
+                        <h2 class="text-4xl font-bold"> 
                             Gratitude 
                         </h2> 
                         <h3 class="text-xl mt-2 font-ibm"> 
@@ -505,17 +505,9 @@ import Layout from '../../layouts/Layout.astro';
                     </div> 
                 </section>
 	<section class="sm:px-16 xl:px-48 p-4">
-        <hgroup>
-            <h2 class="text-4xl font-extrabold font-bold">
+            <h2 class="text-4xl font-bold mb-5">
                 Programs and Initiatives
             </h2>
-            <p class="mt-4 text-lg font-ibm">
-                The programs and initiatives at Athar Humanitarian Foundation are designed to align with its vision and mission, inspired by the saying of Allah in Surah Al-Baqarah, Ayah 177:
-            </p>
-            <p class="my-6 text-xl font-watad leading-loose text-balance">
-                "Righteousness is not that you turn your faces toward the east or the west, but [true] righteousness is in one who believes in Allah, the Last Day, the Angels, the Book, and the Prophets and gives his wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, those who ask [for help], and for freeing slaves; and [who] establishes prayer and gives zakah; [who] fulfill their promise when they promise; and [who] are patient in poverty and hardship and during battle. Those are the ones who have been true, and it is those who are the righteous."
-            </p>
-        </hgroup>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"  data-aos="fade-up">
             {[
                 {
@@ -529,70 +521,6 @@ import Layout from '../../layouts/Layout.astro';
                 {
                     name: "Sakina",
                     description: "Providing housing and support for marginalized groups"
-                },
-                {
-                    name: "Saqiya",
-                    description: "Contributing to projects that provide clean drinking water to needy communities"
-                },
-                {
-                    name: "Qurbah",
-                    description: "Providing housing for the relatives of the founder, Fahad Al-Fawaz, to ensure they live with dignity"
-                },
-                {
-                    name: "Imara",
-                    description: "Restoring and maintaining mosques and community spaces"
-                },
-                {
-                    name: "Areeq",
-                    description: "Promoting the preservation of the rich cultural heritage of the Kingdom of Saudi Arabia in collaboration with the Ministry of Culture"
-                },
-                {
-                    name: "Badiyah",
-                    description: "Protecting and promoting Bedouin heritage"
-                },
-                {
-                    name: "Furqan",
-                    description: "Supporting the education and memorization of the Holy Quran and promoting Islamic education"
-                },
-                {
-                    name: "Iftar",
-                    description: "Providing meals during the holy month of Ramadan for those in need"
-                },
-                {
-                    name: "Sabeel",
-                    description: "Establishing rest stations on main roads offering fresh meals around the clock and smart shelters"
-                },
-                {
-                    name: "Dhad",
-                    description: "Promoting and enhancing the Arabic language in partnership with the Ministry of Education and the Ministry of Culture"
-                },
-                {
-                    name: "Ihsan",
-                    description: "Providing direct financial contributions in partnership with the Ihsan Platform"
-                },
-                {
-                    name: "Mawruath",
-                    description: "Supporting research and development to preserve and enhance pure Arabian breeds of camels and horses"
-                },
-                {
-                    name: "Manasik",
-                    description: "Facilitating Hajj and Umrah programs in partnership with the Ministry of Hajj and Umrah"
-                },
-                {
-                    name: "Fitrah",
-                    description: "Promoting awareness and disseminating the moderate teachings of Islam in Africa"
-                },
-                {
-                    name: "Dhiya",
-                    description: "Supporting and rehabilitating prisoners in partnership with the Ministry of Interior"
-                },
-                {
-                    name: "Afiah",
-                    description: "Providing healthcare and medical assistance for the needy"
-                },
-                {
-                    name: "Qudrah",
-                    description: "Supporting employment opportunities and empowerment for persons with disabilities"
                 }
             ].map(program => (
                 <div class="p-4 bg-white rounded-lg shadow-sm border">
@@ -600,6 +528,16 @@ import Layout from '../../layouts/Layout.astro';
                     <p class="font-ibm">{program.description}</p>
                 </div>
             ))}
+        </div>
+        <div class="flex justify-center mt-8">
+            <a href="/programs-and-initiatives">
+                <button type="button" class="cursor-pointer inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-primary-color-1 bg-secondary-color-2 rounded-lg hover:bg-secondary-color-1 hover:underline focus:ring-4 focus:ring-blue-300 font-ibm">
+                    <span class="flex items-center">See more of our programs</span>
+                    <svg class="w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                </button>
+                </a>
         </div>
     </section>
 </Layout>

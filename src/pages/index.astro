@@ -461,17 +461,9 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 	<section class="sm:px-16 xl:px-48 p-4">
-		<hgroup>
-			<h2 class="text-4xl font-extrabold font-almasmak">
+			<h2 class="text-4xl font-extrabold font-almasmak mb-5">
 				البرامج والمبادرات
 			</h2>
-			<p class="mt-4 text-lg font-ibm">
-				صممت البرامج والمبادرات في مؤسسة أثر الإنسانية لتتوافق مع رؤيتها ورسالتها، مستلهمة من قول الله تعالى في سورة البقرة، الآية 177:
-			</p>
-			<p class="my-6 text-xl font-watad leading-loose text-balance">
-				"لَّيْسَ الْبِرَّ أَن تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ وَلَٰكِنَّ الْبِرَّ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ وَالْمَلَائِكَةِ وَالْكِتَابِ وَالنَّبِيِّينَ وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّائِلِينَ وَفِي الرِّقَابِ وَأَقَامَ الصَّلَاةَ وَآتَى الزَّكَاةَ وَالْمُوفُونَ بِعَهْدِهِمْ إِذَا عَاهَدُوا ۖ وَالصَّابِرِينَ فِي الْبَأْسَاءِ وَالضَّرَّاءِ وَحِينَ الْبَأْسِ ۗ أُولَٰئِكَ الَّذِينَ صَدَقُوا ۖ وَأُولَٰئِكَ هُمُ الْمُتَّقُونَ"
-			</p>
-		</hgroup>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-aos="fade-up">
 			{[
 				{
@@ -486,70 +478,6 @@ import Layout from '../layouts/Layout.astro';
 					name: "سكينة",
 					description: "توفير السكن والدعم للفئات المهمشة"
 				},
-				{
-					name: "سقيا",
-					description: "المساهمة في المشاريع التي توفر مياه الشرب النظيفة للمجتمعات المحتاجة"
-				},
-				{
-					name: "قُربـى",
-					description: "توفير مساكن لأقارب المؤسس، فهد الفواز، لضمان عيشهم بكرامة"
-				},
-				{
-					name: "إعمار",
-					description: "ترميم وصيانة المساجد والأماكن المجتمعية"
-				},
-				{
-					name: "عريق",
-					description: "تعزيز الحفاظ على التراث الثقافي الغني للمملكة العربية السعودية بالتعاون مع وزارة الثقافة"
-				},
-				{
-					name: "بادية",
-					description: "حماية وتعزيز التراث البدوي"
-				},
-				{
-					name: "فرقان",
-					description: "دعم تعليم القرآن الكريم وتحفيظه وتعزيز التعليم الإسلامي"
-				},
-				{
-					name: "إفطار",
-					description: "تقديم الوجبات خلال شهر رمضان المبارك للمحتاجين"
-				},
-				{
-					name: "سبيل",
-					description: "إنشاء محطات استراحة على الطرق الرئيسية للمسافرين"
-				},
-				{
-					name: "ضاد",
-					description: "تعزيز وتطوير اللغة العربية بالشراكة مع وزارة التعليم ووزارة الثقافة"
-				},
-				{
-					name: "إحسان",
-					description: "تقديم مساهمات مالية مباشرة بالشراكة مع منصة إحسان"
-				},
-				{
-					name: "موروث",
-					description: "دعم الأبحاث والتطوير للحفاظ على السلالات العربية الأصيلة للإبل والخيول"
-				},
-				{
-					name: "مناسك",
-					description: "تسهيل برامج الحج والعمرة بالشراكة مع وزارة الحج والعمرة"
-				},
-				{
-					name: "فطرة",
-					description: "تعزيز التوعية ونشر التعاليم الإسلامية المعتدلة في إفريقيا"
-				},
-				{
-					name: "ضياء",
-					description: "دعم وإعادة تأهيل السجناء بالشراكة مع وزارة الداخلية"
-				},
-				{
-					name: "عافية",
-					description: "توفير الرعاية الصحية والمساعدة الطبية للمحتاجين"
-				},
-				{
-					name: "قدرة",
-					description: "دعم فرص التوظيف والتمكين للأشخاص ذوي الإعاقة"
-				}
 			].map(program => (
 				<div class="p-4 bg-white rounded-lg shadow-sm border">
 					<h3 class="text-2xl font-almasmak mb-2">{program.name}</h3>
@@ -557,6 +485,16 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			))}
 		</div>
+		<div class="flex justify-center mt-8">
+			<a href="/programs-and-initiatives">
+			<button type="button" class="cursor-pointer inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-primary-color-1 bg-secondary-color-2 rounded-lg hover:bg-secondary-color-1 hover:underline focus:ring-4 focus:ring-blue-300 font-ibm">
+				<span class="flex items-center">					تعرف على المزيد من برامجنا</span>
+				<svg class="w-3.5 h-3.5 ms-2 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+				</svg>
+			</button>
+			</a>
+        </div>
 	</section>
 </Layout>
 <style is:global>

@@ -51,4 +51,7 @@
     font-display: swap;
   }
   
+  html, body {
+    height: 100%;
+  }
   }
