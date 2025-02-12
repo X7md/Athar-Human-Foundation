@@ -472,7 +472,7 @@ import Layout from '../layouts/Layout.astro';
 				"لَّيْسَ الْبِرَّ أَن تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ وَلَٰكِنَّ الْبِرَّ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ وَالْمَلَائِكَةِ وَالْكِتَابِ وَالنَّبِيِّينَ وَآتَى الْمَالَ عَلَىٰ حُبِّهِ ذَوِي الْقُرْبَىٰ وَالْيَتَامَىٰ وَالْمَسَاكِينَ وَابْنَ السَّبِيلِ وَالسَّائِلِينَ وَفِي الرِّقَابِ وَأَقَامَ الصَّلَاةَ وَآتَى الزَّكَاةَ وَالْمُوفُونَ بِعَهْدِهِمْ إِذَا عَاهَدُوا ۖ وَالصَّابِرِينَ فِي الْبَأْسَاءِ وَالضَّرَّاءِ وَحِينَ الْبَأْسِ ۗ أُولَٰئِكَ الَّذِينَ صَدَقُوا ۖ وَأُولَٰئِكَ هُمُ الْمُتَّقُونَ"
 			</p>
 		</hgroup>
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-aos="fade-up">
 			{[
 				{
 					name: "مثقال",
@@ -491,7 +491,7 @@ import Layout from '../layouts/Layout.astro';
 					description: "المساهمة في المشاريع التي توفر مياه الشرب النظيفة للمجتمعات المحتاجة"
 				},
 				{
-					name: "قُربى",
+					name: "قُربـى",
 					description: "توفير مساكن لأقارب المؤسس، فهد الفواز، لضمان عيشهم بكرامة"
 				},
 				{
@@ -551,7 +551,7 @@ import Layout from '../layouts/Layout.astro';
 					description: "دعم فرص التوظيف والتمكين للأشخاص ذوي الإعاقة"
 				}
 			].map(program => (
-				<div class="p-4 bg-white rounded-lg shadow-sm border" data-aos="fade-up">
+				<div class="p-4 bg-white rounded-lg shadow-sm border">
 					<h3 class="text-2xl font-almasmak mb-2">{program.name}</h3>
 					<p class="font-ibm">{program.description}</p>
 				</div>

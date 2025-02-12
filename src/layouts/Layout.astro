@@ -1,5 +1,6 @@
 ---
 import "../style.css";
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const bar = [{
     ar: "التوثيق الإعلامي",
@@ -17,12 +18,21 @@ const bar = [{
     url: "/volunteer-with-us"
 }];
 
+const supportedLanguages = [
+  { code: 'ar', path: '/' },
+  { code: 'en', path: '/en/' },
+];
+const getUrlForLanguage = (code: string) => {
+	const basePath = supportedLanguages.find((lang) => lang.code === code)?.path || '/';
+	let currentPath = Astro.url.pathname.replace(/^\/(ar|en)/, '');
+	currentPath = currentPath.startsWith('/') ? currentPath.substring(1) : currentPath;
+	return new URL(`${basePath}${currentPath}`, Astro.site || Astro.url).href;
+};
 
 interface Props {
   lang?: string;
   dir?: string;
 }
-
 const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 ---
 <!doctype html>
@@ -31,6 +41,14 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		{supportedLanguages.map((language) => (
+			<link
+			  rel="alternate"
+			  hreflang={language.code}
+			  href={getUrlForLanguage(language.code)}
+			/>
+		  ))}
 		<meta name="generator" content={Astro.generator} />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -182,14 +200,15 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 			      </div>
 			    </footer>
 		<script is:inline src="https://cdn.jsdelivr.net/npm/@reimujs/aos/dist/aos.umd.js"></script>
-		<script is:inline src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-		<script is:inline src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
-		<script is:inline src="https://unpkg.com/embla-carousel-auto-height/embla-carousel-auto-height.umd.js"></script>
 		<script is:inline data-i={Astro.url.pathname}>
 			AOS.init();
 		</script>
 		{
-		(Astro.url?.pathname.startsWith("/") || Astro.url.pathname?.startsWith("/en")) &&(<script is:inline  type="text/javascript">
+		((Astro.url?.pathname === "/" && lang === "ar") || (Astro.url?.pathname === "/en/")) &&(
+		<script is:inline src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+		<script is:inline src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
+		<script is:inline src="https://unpkg.com/embla-carousel-auto-height/embla-carousel-auto-height.umd.js"></script>
+		<script is:inline  type="text/javascript">
 			const emblaNode = document.querySelector('.embla')
 			const options = { loop: false, direction: document.dir === 'rtl' ? 'rtl' : 'ltr' }
 			const plugins = [EmblaCarouselAutoplay({delay: 8000}), EmblaCarouselAutoHeight()]
