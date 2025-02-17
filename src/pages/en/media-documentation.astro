@@ -1,13 +1,91 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+const res = await fetch('https://wpadmin.athar.online/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+        query GetPosts {
+        posts(where: {categoryName: "english"}, first: 10) {
+            nodes {
+            id
+            title
+            date
+            uri
+            excerpt
+            author {
+                node {
+                name
+                }
+            }
+            featuredImage {
+                node {
+                sourceUrl
+                }
+            }
+            categories {
+                nodes {
+                name
+                }
+            }
+            }
+        }
+        }   
+      `,
+    }),
+  });
+
+  const { data } = await res.json();
+  const posts = data.posts.nodes;
 ---
 <Layout dir="ltr" lang="en">
     <section class="flex flex-col items-center text-center justify-center" data-aos="fade-up">
         <h1 class="mb-4 text-4xl text-balance font-watad leading-none md:text-5xl lg:text-6xl p-4">
             Media Documentation
         </h1>
-        <p class="p-4 text-lg font-normal lg:text-xl sm:px-16 xl:px-48 font-ibm">
-            Media Documentation page is under construction
-        </p>
+    </section>
+    <section class="sm:px-16 xl:px-48 p-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-aos="fade-up">
+            {posts.map(
+            /*@ts-ignore*/ 
+            (post) => (
+                <article class="p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow flex flex-col h-full">
+                    {post?.featuredImage?.node?.sourceUrl && (
+                        <img 
+                            src={post.featuredImage.node.sourceUrl} 
+                            alt={post.title}
+                            class="w-full h-48 object-cover rounded-lg mb-4"
+                        />
+                    )}
+                    <div class="flex flex-col h-full justify-between">
+                        <div class="space-y-3">
+                            <h3 class="text-2xl font-almasmak mb-2">{post.title}</h3>
+                            <div class="flex items-center gap-2 text-sm font-ibm text-gray-600">
+                                <span>{new Date(post.date).toLocaleDateString('en-US')}</span>
+                                <span>•</span>
+                                <span>{post?.author?.node.name}</span>
+                            </div>
+                            {post.excerpt && (
+                                <p class="font-ibm text-gray-700" 
+                                   set:html={post.excerpt.replace(/<[^>]*>/g, '').substring(0, 150) + '...'}
+                                />
+                            )}
+                        </div>
+                        <a 
+                            hidden
+                            href={post.uri} 
+                            class="inline-flex items-center mt-4 text-primary-color-1 hover:underline font-ibm"
+                        >
+                            Read More
+                            <svg class="w-3.5 h-3.5 ms-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a1 1 0 01-.707-.293l-7-7a1 1 0 010-1.414l7-7a1 1 0 011.414 1.414L4.414 10l6.293 6.293A1 1 0 0110 18z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            ))}
+        </div>
     </section>
 </Layout>

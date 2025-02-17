@@ -1,0 +1,74 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const res = await fetch('https://wpadmin.athar.online/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+        query GetPosts {
+          posts(first: 10) {
+            nodes {
+              id
+              title
+              date
+              uri
+              author {
+                node {
+                  name
+                }
+              }
+            }
+          }
+        }
+      `,
+    }),
+  });
+
+  const { data } = await res.json();
+  const posts = data.posts.nodes;
+
+  return posts.map((post: any) => {
+    const slug = post.uri.slice(1, post.uri.length - 1);
+    console.log(slug);
+    return {
+      params: { slug: slug },
+      props: {
+        title: post.title,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const { title } = Astro.props;
+---
+
+<Layout dir='rtl' lang='ar'>
+    <article class="max-w-4xl mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold font-koodak text-primary-color mb-4">{title}</h1>
+            <div class="flex items-center gap-4 text-primary-color-1 text-sm font-montserrat">
+                <time class="text-secondary-color">
+                1111
+                </time>
+                {(
+                    <span class="flex items-center gap-2">
+                        <span>بواسطة</span>
+                        <span class="font-medium">""ujuuu</span>
+                    </span>
+                )}
+            </div>
+        </header>
+        
+        <div class="prose prose-lg max-w-none font-koodak">
+            <div class="mb-6 text-primary-color-1 leading-relaxed">
+                <p>Slug: {slug}</p>
+                <!-- Your article content will go here -->
+            </div>
+        </div>
+    </article>
+</Layout>

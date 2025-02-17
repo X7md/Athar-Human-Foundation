@@ -9,9 +9,9 @@ const bar = [
     url: "/media-documentation"
 },
 {
-    ar: "خاصة",
-    en: "Special",
-    url: "/special"
+    ar: "الإمتنان",
+    en: "Gratitude",
+    url: "/gratitude"
 },
 {
     ar: "البرامج والمبادرات",
@@ -87,7 +87,7 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 							{
 								bar.map(item => {
 									return (
-										<li><a href={lang === 'en' ? `/en${item.url}` : item.url}>{
+										<li><a class={((lang === 'en') && 'font-semibold' || '')} href={lang === 'en' ? `/en${item.url}` : item.url}>{
 											//@ts-expect-error
 											item[lang]
 											}</a></li>
@@ -101,8 +101,8 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 						? (Astro.url.pathname.startsWith("/en") ? Astro.url.pathname.substring(3) : Astro.url.pathname)
 						: `/en${Astro.url.pathname}`
 					  }>
-							<button role="switch" class="underline">
-								{lang === 'en' ? "العربية" : "EN"}
+							<button role="switch" class="cursor-pointer underline font-ibm font-black aspect-square bg-secondary-color-2 p-2 text-primary-color-1 rounded-full">
+								{lang === 'en' ? "AR" : "EN"}
 							</button>
 						</a>
 						<details class="md:hidden appearance-none group [&_summary::-webkit-details-marker]:hidden">
@@ -117,7 +117,7 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 									 d="M6 18L18 6m0 12L6 6"/>
 								</svg>
 							</summary>
-							<div class="absolute mt-6 rounded-lg rounded-r-none right-0 left-0 w-full bg-secondary-color-2 max-w-[95%]">
+							<div class="absolute mt-6 rounded-lg rounded-t-none right-0 left-0 w-full bg-secondary-color-2 max-w-[95%]">
 								<ul class="list-none p-4 flex flex-col gap-5 font-koodak">
 									{
 										bar.map(item => {
@@ -151,14 +151,14 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 			         <img src="/logo-3.svg" class="h-16 me-3" alt="Athar Logo" />
 			       </a>
 			     </div>
-			     <div class="grid md:grid-cols-2">
+			     <div class="grid md:grid-cols-2 md:gap-12 gap-4">
 			       <div>
 			         <h2 class="text-lg font-semibold text-gray-900 uppercase font-almasmak">
-										{lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
-									</h2>
+						{lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
+					</h2>
 			         <ul class="font-ibm">
 			          <li>
-			           <p>{lang === 'ar' ? 'البريد الإلكتروني:' : 'Email:'} <a href="mailto:info@athar.org" class="hover:underline">info@athar.org</a></p>
+			           <p>{lang === 'ar' ? 'البريد الإلكتروني:' : 'Email:'} <a href="mailto:info@athar.online" class="hover:underline">info@athar.online</a></p>
 			          </li>
 			          <li>
 			           <p>{lang === 'ar' ? 'الهاتف:' : 'Phone:'} <a href="tel:+966XXXXXXXXX" class="hover:underline isolate"><span dir="ltr" class="bid-[unicode-bidi:plaintext]">+966-XXX-XXX-XXXX</span></a></p>
@@ -168,16 +168,28 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 			          </li>
 			         </ul>
 			       </div>
+				   <div>
+					  <h2 class="text-lg font-semibold text-gray-900 uppercase font-almasmak">
+						{lang === 'ar' ? 'روابط' : 'Links'}
+					  </h2>
+					  <ul class="font-ibm">
+						<li>
+						  <a href={lang === 'en' ? '/en/special' : '/special'} class="hover:underline">
+							{lang === 'ar' ? 'صفحة خاصة' : 'Special Page'}
+						  </a>
+						</li>
+					  </ul>
+					</div>
 			     </div>
 			   </div>
 			   <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
 			   <div class="sm:flex sm:items-center sm:justify-between font-ibm">
 			      <span class="text-sm text-gray-500 sm:text-center ">
-								{lang === 'ar' ? 'جميع الحقوق محفوظة، ' : 'All rights reserved, '}
-								<span class="font-koodak">{lang === 'ar' ? 'مؤسسة أثر الإنسانية' : 'Athar Humanitarian Foundation'}</span> 2025<a href="/" class="hover:underline"></a>©.
+						{lang === 'ar' ? 'جميع الحقوق محفوظة، ' : 'All rights reserved, '}
+						<span class="font-koodak">{lang === 'ar' ? 'مؤسسة أثر الإنسانية' : 'Athar Humanitarian Foundation'}</span> 2025<a href="/" class="hover:underline"></a>©.
 			        </span>
 			        <div class="flex mt-4 sm:justify-center sm:mt-0">
-								{lang === 'en' && <span class="text-gray-500 me-4">Follow Us on Social Media:</span>}
+					<!-- {lang === 'en' && <span class="text-gray-500 me-4">Follow Us on Social Media:</span>} -->
 			          <a href="#" class="text-gray-500 hover:text-gray-900 ms-5">
 			            <svg class="size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 			              <path fill="currentColor" d="M22 11.939a26.5 26.5 0 0 0-.41-4.801a2.5 2.5 0 0 0-1.803-1.714a61 61 0 0 0-7.81-.41c-2.609-.03-5.217.11-7.808.42a2.52 2.52 0 0 0-1.76 1.76a26.4 26.4 0 0 0-.408 4.8c-.01 1.61.127 3.216.409 4.8a2.56 2.56 0 0 0 1.78 1.782c2.592.303 5.2.44 7.81.409a59 59 0 0 0 7.787-.41a2.52 2.52 0 0 0 1.759-1.758c.307-1.608.46-3.242.454-4.878m-7.411.582l-4.005 2.271a.53.53 0 0 1-.785-.464V9.616a.52.52 0 0 1 .785-.454l4.137 2.378a.52.52 0 0 1-.022.908z"/>
@@ -211,7 +223,7 @@ const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 			AOS.init();
 		</script>
 		{
-		((Astro.url?.pathname === "/" && lang === "ar") || (Astro.url?.pathname === "/en/")) &&(
+		(["/gratitude", "/en/gratitude"].some(path => Astro.url?.pathname.includes(path))) &&(
 		<script is:inline src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
 		<script is:inline src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
 		<script is:inline src="https://unpkg.com/embla-carousel-auto-height/embla-carousel-auto-height.umd.js"></script>

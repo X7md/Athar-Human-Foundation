@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @config "../tailwind.config.mjs";
+@plugin "@tailwindcss/typography";
 
 @layer base {
     @font-face {
@@ -53,5 +54,8 @@
   
   html, body {
     height: 100%;
+  }
+  a[href]{
+    text-decoration: underline;
   }
   }

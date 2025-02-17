@@ -1,0 +1,214 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout dir="rtl" lang="ar">
+	<section class="sm:px-16 xl:px-48 p-4">
+		<hgroup data-aos="fade-down">
+			<h2 class="text-4xl font-extrabold font-almasmak" >
+				الإمتنان
+			</h2>
+			<h3 class="text-xl mt-2 font-ibm">
+				رسائل إمتنان من المؤسس
+			</h3>
+		</hgroup>
+		<div data-aos="fade-up">
+			<svg class="w-8 h-8 text-secondary-color-2 mb-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 14">
+				<path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z"/>
+			</svg>
+			<div class="flex justify-center items-center" 
+			x-data="{
+				next: emblaApi.canScrollNext(),
+				prev: emblaApi.canScrollPrev(),
+				currentSlide: 0,
+				initEmbla() {
+				// Check for emblaApi availability
+				if (typeof emblaApi !== 'undefined') {
+					emblaApi.on('select', () => {
+						const theCurrentSlide = emblaApi.selectedScrollSnap();
+						this.currentSlide = theCurrentSlide;
+						this.next = emblaApi.canScrollNext();
+						this.prev = emblaApi.canScrollPrev();
+					});
+
+					// Initial state setup
+					this.next = emblaApi.canScrollNext();
+					this.prev = emblaApi.canScrollPrev();
+					}
+				},
+				toggle(direction) { 
+				  direction === 'next' && emblaApi.canScrollNext() && (emblaApi.scrollNext());
+				  direction === 'prev' && emblaApi.canScrollPrev() && (emblaApi.scrollPrev());
+				  this.next = emblaApi.canScrollNext();
+				  this.prev = emblaApi.canScrollPrev();
+				}
+			  }"
+			  x-effect="console.log(currentSlide)"
+			  x-init="
+					// Try to initialize immediately
+					initEmbla();
+				"
+			>
+				<button class="cursor-pointer disabled:opacity-10" :disabled="!prev" @click="toggle('prev')">
+					<svg class="size-8" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
+						<g fill="none"><path fill="currentColor" d="M4 11.25a.75.75 0 0 0 0 1.5zm0 1.5h16v-1.5H4z" opacity=".5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m14 6l6 6l-6 6"/></g>
+					</svg>
+				</button>
+				
+				<hr class="border w-12 mx-6" />
+				<button class="cursor-pointer disabled:opacity-10" :disabled="!next" @click="toggle('next')">
+					<svg class="size-8" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24">
+						<g fill="none"><path fill="currentColor" d="M20 12.75a.75.75 0 0 0 0-1.5zm0-1.5H4v1.5h16z" opacity=".5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m10 6l-6 6l6 6"/></g>
+					</svg>
+				</button>
+			</div>
+			<div class="embla">
+				<div class="embla__container text-7xl">
+				  <div class="embla__slide">
+					<blockquote class="text-xl font-watad text-gray-900">
+						<hgroup class="text-center">
+							<h2>
+								الرسالة الاولى
+							</h2>
+							<h3>
+								رسالة امتنان إلى الله عز وجل
+							</h3>
+						</hgroup>
+						<p class="font-ibm text-sm lg:text-base">
+							الحمد لله رب العالمين، الذي بنعمته تتم الصالحات، وبفضله تهون الصعاب، وبكرمه تتنزل الرحمات.
+							<br />
+							يا الله، يا من أغدقت عليَّ من فضلك وكرمك ما لا أستطيع إحصاءه، يا من وهبتني القوة لأتجاوز المحن، واليقين لأواجه التحديات، والحكمة لأخطو بثبات في دروب الحياة.
+							<br />
+							لك الحمد على كل نَفَسٍ وهبتني إياه، وعلى كل خطوة خطوتها نحو الخير، وعلى كل قلب نبض بالعطاء من خلالي.
+							<br />
+							يا الله، أشكرك على أن سخرت لي أسباب النجاح، وأكرمتني برؤية ثمرة جهدي تنمو وتزهر في حياة الآخرين. أشكرك على أن منحتني الشجاعة لأحلم، والعزيمة لأعمل، والتوفيق لأحقق.
+							<br />
+							يا من لا ترد الدعاء، أسألك أن تجعل كل عمل أقوم به خالصًا لوجهك الكريم، وأن تجعل أثري ممتدًا بالخير في حياة كل محتاج، وكل يتيم، وكل مكلوم.
+							<br />
+							يا الله، اجعل هذه المؤسسة واحة خير، وساحة عطاء، ومنارة أمل لكل من ضاق به الطريق. اجعلها بابًا أطرق به الجنة، وذخرًا ألقاك به يوم لا ينفع مال ولا بنون إلا من أتى الله بقلب سليم.
+							<br />
+							اللهم لك الحمد حتى ترضى، ولك الحمد إذا رضيت، ولك الحمد بعد الرضا.
+							<br />
+							“ربِّ اجعلني مقيم الصلاة ومن ذريتي، ربنا وتقبل دعاء.”
+						</p>
+					</blockquote>
+				  </div>
+				  <div class="embla__slide">
+					<blockquote class="text-xl font-watad text-gray-900">
+						<hgroup class="text-center">
+							<h2>
+								الرسالة الثانية
+							</h2>
+							<h3>
+								رسالة امتنان إلى أمي الغالية
+							</h3>
+							<h3>
+								منيرة بنت ثنيان الثنيان
+							</h3>
+						</hgroup>
+						<p class="font-ibm text-sm lg:text-base">
+							إلى من كانت لي السند بعد الله، إلى من حملتني في قلبها قبل ذراعيها، إلى أمي الغالية منيرة بنت ثنيان الثنيان،
+							<br />
+							يا منيرة دربي ونور حياتي، كنتِ الأم والأب، المعلمة والقدوة، والحضن الدافئ الذي ألجأ إليه كلما ضاقت بي السبل. لم يكن الطريق سهلاً، لكنكِ مضيتِ فيه بثبات وقوة، كنتِ الصبر الذي يُدرّس، والتضحية التي تُحكى للأجيال.
+							<br /><br />
+							إن ما تقدمه مؤسسة أثر اليوم هو امتداد لقيمكِ الأصيلة التي غرستِها في قلبي منذ الصغر. كان لعطائكِ غير المحدود، وتضحياتكِ التي لا تُحصى، الأثر الأكبر في بناء شخصيتي وتشكيل مبادئي. تعلمتُ منكِ أن العطاء الحقيقي لا ينتظر مقابلاً، وأن الخير يبقى أثره خالدًا مهما مر الزمان.
+							<br />
+							<br />
+							تحملتِ أعباء الحياة بصمت، وواجهتِ الصعاب بقلب مؤمن وابتسامة مطمئنة. لم تشتكي يومًا ولم تتخاذلي عن أداء رسالتكِ كأم عظيمة. لقد زرعتِ في داخلي حب الخير والعمل الصادق، وألهمتني أن أجعل من كل خطوة أخطوها أثرًا طيبًا يبقى بعدي.
+							<br />
+							<br />
+							إن مؤسسة أثر ليست مجرد مبادرة خيرية، بل هي انعكاس حقيقي لتربيتكِ لي، وقيمكِ التي ستظل نبراسًا يضيء طريقنا. نجاح هذه المؤسسة هو جزء من عطائكِ المستمر، وهو رسالة حب ووفاء لكِ ولكل أم ضحت وسهرت وربّت لتصنع إنسانًا صالحًا يخدم مجتمعه.
+							<br />
+							<br />
+							أعدكِ يا أمي أن أواصل هذا الأثر، وأن تكون كل مبادرة وكل مشروع في مؤسسة أثر شاهدًا على تضحياتكِ وعطائكِ. أسأل الله أن يحفظكِ ويرزقكِ سعادة لا تنقطع، وأن يجعل كل ما قدمتِه لي في ميزان حسناتكِ.
+							<br />
+							<br />
+							<br />
+							<span class="font-ibm font-bold">
+								— 
+								ابنكِ المحب والممتن، 
+							فهد
+							</span>
+						</p>
+					</blockquote>
+				  </div>
+				  <div class="embla__slide">
+					<blockquote class="text-xl font-watad text-gray-900">
+						<hgroup class="text-center">
+							<h2>
+								الرسالة الثالثة
+							</h2>
+							<h3>
+								رسالة امتنان وعرفان
+							</h3>
+						</hgroup>
+						<p class="font-ibm text-sm lg:text-base">
+						وسط مسيرتي في بناء هذا الصرح الخيري، أجد نفسي مدينًا بالشكر والعرفان لزوجتي العزيزة مها بنت عبدالله الحديثي، التي كانت ولا تزال سندي وركيزة استقراري، وملاذي الدافئ في أوقات التحديات. لقد كانت كلماتها المشجعة ولمساتها الحانية هي الوقود الذي دفعني للمضي قدمًا بكل قوة وثقة.
+						<br /><br />
+						إلى بناتي الغاليات: منيرة، والعنود، وسارة، أنتن نور حياتي وسر سعادتي. أرى فيكن المستقبل الزاهر، وأستمد منكن الأمل والإصرار. إن دعمكن وصبركن على غيابي في أوقات العمل والسفر لأجل هذه المؤسسة هو جزء أساسي من هذا النجاح.
+						<br /><br />
+						لقد كنتن دائمًا مصدر إلهامي، وأعدكن بأن يبقى هذا الإرث الخيري شاهدًا على حبنا العميق، ورسالة نبعثها معًا لخدمة المجتمع والإسهام في بناء مستقبل أفضل.
+						<br /><br />
+						أسأل الله أن يبارك فيكن ويحفظكن من كل سوء، وأن يوفقكن لتحقيق أحلامكن، تمامًا كما دعمتن أحلامي.
+						<br />
+						<br />
+						<span class="font-ibm font-bold">
+							— 
+							محبكم،
+						فهد
+						</span>
+						</p>
+					</blockquote>
+				  </div>
+				  <div class="embla__slide">
+					<blockquote class="text-xl font-watad text-gray-900">
+						<hgroup class="text-center">
+							<h2>
+								الرسالة الرابعة
+							</h2>
+							<h3>
+								إلى روح جدتي الغالية
+							</h3>
+							<h3>
+								نهية بنت عبدالعزيز المعيذر (رحمها الله)
+							</h3>
+						</hgroup>
+						<p class="font-ibm text-sm lg:text-base">							
+						إلى من كانت نورًا أضاء دروب طفولتي، وحنانًا غمر أيامي، وابتسامةً صافية ملأت قلبي بالطمأنينة… إلى جدتي الحبيبة نهية بنت عبد العزيز المعيذر (رحمها الله).
+						<br /><br />
+						رحلتِ عن دنيانا، لكن ذكراكِ لا تزال نابضةً في قلبي، وسيرتكِ العطرة تتردد في أذني مع كل عمل خير أقدّم عليه، ومع كل لحظة أتأمل فيها الأثر الذي تركتِه في حياتي. كنتِ لي حضنًا دافئًا، وملاذًا آمنًا، وكنزًا من الحكمة والصبر.
+						<br /><br />
+						أتذكر دعواتكِ الصادقة، كلماتكِ الطيبة التي كانت تُشعرني أن الدنيا مهما قست، فهي أهون بدعواتكِ الصافية. كنتِ تؤمنين أن الخير لا ينقطع أجره أبدًا، وأن العطاء هو البصمة التي تبقى بعد الرحيل.
+						<br /><br />
+						مؤسسة أثر هي امتداد لتلك القيم النبيلة التي غرستِها فينا، وهي محاولة متواضعة لأجعل من أعمال الخير التي أقوم بها جسرًا يصلني بكِ في جنات الخلد بإذن الله. أرجو أن يكون كل مشروع خيري وكل يد مساعدة نمدها باسم المؤسسة صدقة جارية في ميزان حسناتكِ، ورحمةً تهطل على روحكِ الطاهرة.
+						<br /><br />
+						جدتي الحبيبة، أعدكِ أن أبذل كل جهدي لأجعل مؤسسة أثر منارةً للخير، وأثرًا يبقى ويمتد، يضيء دروب المحتاجين، ويُسعد قلوبهم، ليكون كل ذلك دعوة مستجابة ترفع مقامكِ في دار البقاء.
+						<br /><br />
+						أسأل الله العظيم أن يرحمكِ بواسع رحمته، ويغفر لكِ، ويجمعني بكِ في جنات النعيم، حيث لا فراق ولا وداع.
+						<br /><br />
+						رحمكِ الله يا جدتي، وأسكنكِ الفردوس الأعلى من الجنة.
+						<br /><br />
+							<span class="font-ibm font-bold">
+								— 
+								محبكِ للأبد: فهد
+							</span>
+						</p>
+					</blockquote>
+				  </div>
+				</div>
+			  </div>
+		</div>
+	</section>
+</Layout>
+
+<style is:global>
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+</style>

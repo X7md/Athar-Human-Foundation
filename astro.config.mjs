@@ -7,7 +7,6 @@ import node from "@astrojs/node";
 // https://astro.build/config
 export default defineConfig({
   site: process.env.PUBLIC_SITE_URL,
-
   vite: {
       plugins: [
         tailwindcss()
@@ -32,7 +31,7 @@ export default defineConfig({
     }
   )],
 
-  adapter: node({
-    mode: "standalone",
-  }),
+  // adapter: node({
+  //   mode: "standalone",
+  // }),
 });
