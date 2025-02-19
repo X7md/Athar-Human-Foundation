@@ -8,7 +8,7 @@ const res = await fetch('https://wpadmin.athar.online/graphql', {
     body: JSON.stringify({
       query: `
         query GetPosts {
-        posts(where: {categoryName: "arabic"}, first: 10) {
+        posts(where: {categoryName: "arabic"}, first: 300) {
             nodes {
             id
             title
@@ -74,8 +74,7 @@ const res = await fetch('https://wpadmin.athar.online/graphql', {
                             )}
                         </div>
                         <a 
-                            hidden
-                            href={post.uri} 
+                            href={'/posts/' + post.id} 
                             class="inline-flex items-center mt-4 text-primary-color-1 hover:underline font-ibm"
                         >
                             اقرأ المزيد

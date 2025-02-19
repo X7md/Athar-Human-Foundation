@@ -1,5 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const res = await fetch('https://wpadmin.athar.online/graphql', {
@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     body: JSON.stringify({
       query: `
        query GetPostIDs {
-        posts(where: { categoryName: "arabic" }) { # Filter by category here
+        posts(where: { categoryName: "english" }) { # Filter by category here
           nodes {
             id # This is the base64 encoded ID
           }
@@ -77,15 +77,15 @@ const post = postData?.post; // Access the single post
 // ... (rest of the component code remains the same, using post.title, post.content, etc.)
 ---
 
-<Layout dir='rtl' lang='ar'>
+<Layout dir='ltr' lang='en'>
   {post && ( // Conditional rendering to prevent errors if post is not found
     <article class="max-w-4xl mx-auto px-4 py-8">
       <header class="mb-8">
         <h1 class="text-4xl font-bold font-almasmak text-primary-color mb-4">{post.title}</h1>
         <div class="flex items-center gap-4 text-primary-color-1 text-sm">
-          <time class="text-secondary-color">{new Date(post.date).toLocaleDateString('ar-SA')}</time> {/* Format the date */}
+          <time class="text-secondary-color">{new Date(post.date).toLocaleDateString('en-SA')}</time> {/* Format the date */}
           <span class="flex items-center gap-2">
-            <span>بواسطة</span>
+            <span>by</span>
             <span class="font-medium">{post.author["node"].name}</span>
           </span>
         </div>
