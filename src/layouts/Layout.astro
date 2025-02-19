@@ -4,9 +4,9 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const bar = [
 {
-    ar: "التوثيق الإعلامي",
-    en: "Media Documentation",
-    url: "/media-documentation"
+    ar: "الرئيسية",
+    en: "Home",
+    url: "/"
 },
 {
     ar: "الإمتنان",
@@ -14,9 +14,19 @@ const bar = [
     url: "/gratitude"
 },
 {
+    ar: "التوثيق الإعلامي",
+    en: "Media Documentation",
+    url: "/media-documentation"
+},
+{
     ar: "البرامج والمبادرات",
     en: "Programs and Initiatives",
     url: "/programs-and-initiatives"
+},
+{
+    ar: "الإنجازات",
+    en: "Achievements",
+    url: "/achievements"
 },
 {
     ar: "تطوع معنا",
@@ -186,6 +196,11 @@ const social = await fetchSocialMedia();
 							{lang === 'ar' ? 'صفحة خاصة' : 'Special Page'}
 						  </a>
 						</li>
+						<li>
+							<a href={lang === 'en' ? '/en/volunteer-with-us' : '/volunteer-with-us'} class="hover:underline">
+							  {lang === 'ar' ? 'تطوع معنا' : 'Volunteer With Us'}
+							</a>
+						  </li>
 					  </ul>
 					</div>
 			     </div>
