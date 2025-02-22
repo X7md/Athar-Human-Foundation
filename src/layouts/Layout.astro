@@ -20,7 +20,7 @@ const bar = [
 },
 {
     ar: "البرامج والمبادرات",
-    en: "Programs and Initiatives",
+    en: "Programs & Initiatives",
     url: "/programs-and-initiatives"
 },
 {
@@ -29,10 +29,17 @@ const bar = [
     url: "/achievements"
 },
 {
+    ar: "الشراكات الاستراتيجية",
+    en: "Strategic Partnerships",
+    url: "/strategic-partnerships"
+}
+,
+{
     ar: "تطوع معنا",
     en: "Volunteer With Us",
     url: "/volunteer-with-us"
 }
+
 ];
 
 const supportedLanguages = [
@@ -105,7 +112,7 @@ const social = await fetchSocialMedia();
 							{
 								bar.map(item => {
 									return (
-										<li><a class={((lang === 'en') && 'font-semibold' || '')} href={lang === 'en' ? `/en${item.url}` : item.url}>{
+										<li><a class={((lang === 'en') && 'font-medium text-sm' || '')} href={lang === 'en' ? `/en${item.url}` : item.url}>{
 											//@ts-expect-error
 											item[lang]
 											}</a></li>
@@ -136,7 +143,7 @@ const social = await fetchSocialMedia();
 								</svg>
 							</summary>
 							<div class="absolute mt-6 rounded-lg rounded-t-none right-0 left-0 w-full bg-secondary-color-2 max-w-[95%]">
-								<ul class="list-none p-4 flex flex-col gap-5 font-koodak">
+								<ul class="list-none p-4 flex flex-col gap-3 font-koodak">
 									{
 										bar.map(item => {
 											return (

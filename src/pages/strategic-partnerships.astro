@@ -1,0 +1,67 @@
+---
+//@ts-nocheck
+import Layout from '../layouts/Layout.astro';
+import { parse } from 'node-html-parser';
+
+const response = await fetch('https://wpadmin.athar.online/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: `
+      query GetAchievementsPage {
+        pages(where: { name: "Our Partners" }) {
+          nodes {
+            title
+            content
+          }
+        }
+      }
+    `
+  }),
+});
+
+const { data } = await response.json();
+const html = data?.pages?.nodes[0]?.content || '';
+
+function parseHtmlToJson(htmlString) {
+  const root = parse(htmlString);
+  const result = [];
+  const imageElements = root.querySelectorAll('.swiper-slide img');
+
+  imageElements.forEach(img => {
+    result.push(img.getAttribute('src'));
+  });
+
+  return result;
+}
+
+const partnerLogos = parseHtmlToJson(html);
+---
+<Layout>
+    <section class="flex flex-col items-center text-center justify-center" data-aos="fade-up">
+        <hgroup>
+            <h1 class="mb-4 text-4xl text-balance font-watad leading-none md:text-5xl lg:text-6xl p-4">
+                شراكات استراتيجية
+            </h1>
+            <h2 class="p-4 text-lg font-normal lg:text-xl sm:px-16 xl:px-48 font-ibm">
+                نرحب بالتعاون مع المؤسسات الحكومية والقطاع الخاص لتحقيق أهدافنا المشتركة.
+            </h2>
+        </hgroup>
+    </section>
+
+    <section class="sm:px-16 xl:px-48 p-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+            {partnerLogos.map(logo => (
+                <div class="p-8 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow flex flex-col items-center justify-center">
+                    <img 
+                        src={logo}
+                        alt="شعار الشريك"
+                        class="h-24 object-contain mb-4 grayscale hover:grayscale-0 transition-all"
+                    />
+                </div>
+            ))}
+        </div>
+    </section>
+</Layout>
