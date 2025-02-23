@@ -14,94 +14,115 @@ import Layout from '../../layouts/Layout.astro';
                 "Righteousness is not that you turn your faces toward the east or the west, but [true] righteousness is in one who believes in Allah, the Last Day, the Angels, the Book, and the Prophets and gives his wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, those who ask [for help], and for freeing slaves; and [who] establishes prayer and gives zakah; [who] fulfill their promise when they promise; and [who] are patient in poverty and hardship and during battle. Those are the ones who have been true, and it is those who are the righteous."
             </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-aos="fade-up">
+        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-aos="fade-up">
             {[
                 {
-                    name: "Mithqal",
-                    description: "Providing support to orphans and needy families"
+                    name: "Mithqal Program",
+                    description: "Providing support to orphans and needy families."
                 },
                 {
-                    name: "Together",
-                    description: "Supporting talented Saudi youth through scholarships, mentoring, and financing to enhance innovation"
+                    name: "Together Program",
+                    description: "Supporting talented Saudi youth through scholarships, mentoring, and financing to enhance innovation."
                 },
                 {
-                    name: "Sakina",
-                    description: "Providing housing and support for marginalized groups"
+                    name: "Sakina Program",
+                    description: "Providing housing and support for marginalized groups."
                 },
                 {
-                    name: "Saqiya",
-                    description: "Contributing to projects that provide clean drinking water to needy communities"
+                    name: "Saqiya Program",
+                    description: "Contributing to projects that provide clean drinking water to needy communities."
                 },
                 {
-                    name: "Qurbah",
-                    description: "Providing housing for the relatives of the founder, Fahad Al-Fawaz, to ensure they live with dignity"
+                    name: "Qurbah Program",
+                    description: "Providing housing for the relatives of the founder, Fahad Al-Fawaz, to ensure they live with dignity."
                 },
                 {
-                    name: "Imara",
-                    description: "Restoring and maintaining mosques and community spaces"
+                    name: "Imara Program",
+                    description: "Restoring and maintaining mosques and community spaces."
                 },
                 {
-                    name: "Areeq",
-                    description: "Promoting the preservation of the rich cultural heritage of the Kingdom of Saudi Arabia in collaboration with the Ministry of Culture"
+                    name: "Areeq Program",
+                    description: "Promoting the preservation of the rich cultural heritage of the Kingdom of Saudi Arabia in collaboration with the Ministry of Culture."
                 },
                 {
-                    name: "Badiyah",
-                    description: "Protecting and promoting Bedouin heritage"
+                    name: "Badiyah Program",
+                    description: "Protecting and promoting Bedouin heritage."
                 },
                 {
-                    name: "Furqan",
-                    description: "Supporting the education and memorization of the Holy Quran and promoting Islamic education"
+                    name: "Furqan Program",
+                    description: "Supporting the education and memorization of the Holy Quran and promoting Islamic education."
                 },
                 {
-                    name: "Iftar",
-                    description: "Providing meals during the holy month of Ramadan for those in need"
+                    name: "Iftar Program",
+                    description: "Providing meals during the holy month of Ramadan for those in need, in fulfillment of zakah and charity during this blessed month."
                 },
                 {
-                    name: "Sabeel",
-                    description: "Establishing rest stations on main roads offering fresh meals around the clock and smart shelters"
+                    name: "Sabeel Program",
+                    description: "Establishing rest stations on main roads offering fresh meals around the clock and smart shelters in cooperation with the Ministry of Transport.",
+                    headline: "for travelers"
                 },
                 {
-                    name: "Dhad",
-                    description: "Promoting and enhancing the Arabic language in partnership with the Ministry of Education and the Ministry of Culture"
+                    name: "Dhad Program",
+                    description: "Promoting and enhancing the Arabic language in partnership with the Ministry of Education and the Ministry of Culture.",
+                    headline: "Arabic language development and enhancement"
                 },
                 {
-                    name: "Ihsan",
-                    description: "Providing direct financial contributions in partnership with the Ihsan Platform"
+                    name: "Imara Program",
+                    description: "Building and restoring mosques in partnership with the Ministry of Islamic Affairs.",
+                    headline: "Building, Restoring, and Supporting Mosques"
                 },
                 {
-                    name: "Mawruath",
-                    description: "Supporting research and development to preserve pure Arabian breeds of camels and horses"
+                    name: "Ihsan Program",
+                    description: "Providing direct financial contributions in partnership with the Ihsan Platform.",
+                    headline: "Contributions through the Ihsan Platform"
                 },
                 {
-                    name: "Manasik",
-                    description: "Facilitating Hajj and Umrah programs in partnership with the Ministry of Hajj and Umrah"
+                    name: "Mawruath Program",
+                    description: "Supporting research and development to preserve and enhance pure Arabian breeds of camels and horses in partnership with the Camel Club.",
+                    headline: "Supporting the Development of Purebred Camels and Horses"
                 },
                 {
-                    name: "Fitrah",
-                    description: "Promoting awareness and disseminating the moderate teachings of Islam in Africa"
+                    name: "Manasik Program",
+                    description: "Facilitating Hajj and Umrah programs in partnership with the Ministry of Hajj and Umrah.",
+                    headline: "for Hajj and Umrah"
                 },
                 {
-                    name: "Dhiya",
-                    description: "Supporting and rehabilitating prisoners in partnership with the Ministry of Interior"
+                    name: "Fitrah Program",
+                    description: "Promoting awareness and disseminating the moderate teachings of Islam in Africa in partnership with the Ministry of Islamic Affairs.",
+                    headline: "Awareness and Moderate Islamic Outreach in Africa"
                 },
                 {
-                    name: "Afiah",
-                    description: "Providing healthcare and medical assistance for the needy"
+                    name: "Dhiya Program",
+                    description: "Supporting and rehabilitating prisoners in partnership with the Ministry of Interior.",
+                    headline: "Support and Rehabilitation of Prisoners"
                 },
                 {
-                    name: "Qudrah",
-                    description: "Supporting employment opportunities and empowerment for persons with disabilities"
+                    name: "Afiah Program",
+                    description: "Providing healthcare and medical assistance for the needy in partnership with the Ministry of Health.",
+                    headline: "Healthcare and Medical Assistance for the Needy"
                 },
                 {
-                    name: "Namaa",
+                    name: "Qudrah Program",
+                    description: "Supporting employment opportunities and empowerment for persons with disabilities in partnership with the Ministry of Human Resources and Social Development.",
+                    headline: "Empowering Persons with Disabilities"
+                },
+                {
+                    name: "Namaa Program",
                     description: "(To support water research and agricultural technologies) in partnership with the Ministry of Agriculture"
                 }
             ].map(program => (
-                <div class="p-4 bg-white rounded-lg shadow-sm border">
-                    <h3 class="text-2xl font-bold mb-2">{program.name}</h3>
-                    <p class="font-ibm">{program.description}</p>
-                </div>
+                <li class="p-4 bg-white rounded-lg shadow-sm border" aos-data="fade-up">
+                    {program.headline ? (
+                        <hgroup class="mb-2">
+                            <h3 class="text-2xl font-bold">{program.name}</h3>
+                            <h4 class="text-sm font-ibm font-extrabold text-gray-600 mt-1">{program.headline}</h4>
+                        </hgroup>
+                    ) : (
+                        <h3 class="text-2xl font-bold mb-2">{program.name}</h3>
+                    )}
+                    <p class="font-ibm text-sm">{program.description}</p>
+                </li>
             ))}
-        </div>
+        </ul>
     </section>
 </Layout>
