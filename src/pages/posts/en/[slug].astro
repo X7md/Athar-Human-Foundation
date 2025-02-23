@@ -1,41 +1,41 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 
-export async function getStaticPaths() {
-  const res = await fetch('https://wpadmin.athar.online/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: `
-       query GetPostIDs {
-        posts(where: { categoryName: "english" }) { # Filter by category here
-          nodes {
-            id # This is the base64 encoded ID
-          }
-        }
-      }
-      `,
-    }),
-  });
+// export async function getStaticPaths() {
+//   const res = await fetch('https://wpadmin.athar.online/graphql', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       query: `
+//        query GetPostIDs {
+//         posts(where: { categoryName: "english" }) { # Filter by category here
+//           nodes {
+//             id # This is the base64 encoded ID
+//           }
+//         }
+//       }
+//       `,
+//     }),
+//   });
 
-  const { data } = await res.json();
-  const posts = data.posts.nodes;
+//   const { data } = await res.json();
+//   const posts = data.posts.nodes;
 
-  return posts.map((
-    //@ts-expect-error
-    post
-  ) => {
-    const id = post.id; // The base64 encoded ID
-    const decodedId = id; // Decode the ID after 'post:'
-    const slug = decodedId; // or you can use other logic to generate a user-friendly slug
-    return {
-      params: { slug: slug }, // Use some user-friendly slug here
-      props: { id }, // Pass the base64 ID as a prop
-    };
-  });
-}
+//   return posts.map((
+//     //@ts-expect-error
+//     post
+//   ) => {
+//     const id = post.id; // The base64 encoded ID
+//     const decodedId = id; // Decode the ID after 'post:'
+//     const slug = decodedId; // or you can use other logic to generate a user-friendly slug
+//     return {
+//       params: { slug: slug }, // Use some user-friendly slug here
+//       props: { id }, // Pass the base64 ID as a prop
+//     };
+//   });
+// }
 
 const { slug } = Astro.params;
 const { id } = Astro.props; // Receive the base64 ID
@@ -68,7 +68,7 @@ const postRes = await fetch('https://wpadmin.athar.online/graphql', {
         }
       }
     `,
-    variables: { id }, // Pass the base64 encoded ID
+    variables: { id: slug }, // Pass the base64 encoded ID
   }),
 });
 
