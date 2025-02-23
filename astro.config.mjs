@@ -8,7 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.PUBLIC_SITE_URL,
+  // site: "https://athar.online/",
   vite: {
       plugins: [
         tailwindcss()
@@ -20,6 +20,8 @@ export default defineConfig({
     defaultLocale: "ar",
   },
 
+  // output: 'server',
+  // adapter: cloudflare(),
   integrations: [
     sitemap(
     {

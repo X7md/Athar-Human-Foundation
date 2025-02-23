@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'ar';
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+---
+
+<Layout lang={lang} dir={dir}>
+    <div class="flex min-h-[70vh] font-ibm items-center justify-center px-4">
+        <div class="text-center">
+            <h1 class="mb-4 text-6xl font-semibold text-primary-color-1">404</h1>
+            <h2 class="mb-4 text-2xl">
+                {lang === 'ar' 
+                    ? 'عذراً، الصفحة غير موجودة'
+                    : 'Sorry, Page Not Found'}
+            </h2>
+            <p class="mb-8 text-gray-600">
+                {lang === 'ar'
+                    ? 'الصفحة التي تبحث عنها قد تكون قد تم نقلها أو حذفها أو لم تكن موجودة'
+                    : 'The page you are looking for might have been moved, deleted, or never existed'}
+            </p>
+            <a href={lang === 'en' ? '/en' : '/'} 
+               class="bg-primary-color-1 text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors">
+                {lang === 'ar' ? 'العودة للرئيسية' : 'Back to Home'}
+            </a>
+        </div>
+    </div>
+</Layout>

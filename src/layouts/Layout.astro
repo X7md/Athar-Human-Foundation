@@ -59,9 +59,10 @@ interface Props {
 }
 const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 async function fetchSocialMedia() {
-  const res = await fetch('https://wpadmin.athar.online/wp-json/ekv-public/v1/data/social_media');
+  const res = await fetch('https://wpadmin.athar.online/wp-json/ekv-public/v1/data/social_media?v' + (Math.floor(Math.random() * 900) + 100));
   if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
   const { success, data } = await res.json();
+//   console.log(data)
   if (!success) throw new Error(data?.message || 'Failed to fetch social media data');
   return data;
 }
@@ -183,10 +184,10 @@ const social = await fetchSocialMedia();
 					</h2>
 			         <ul class="font-ibm">
 			          <li>
-			           <p>{lang === 'ar' ? 'البريد الإلكتروني:' : 'Email:'} <a href="mailto:info@athar.online" class="hover:underline">info@athar.online</a></p>
+			           <p>{lang === 'ar' ? 'البريد الإلكتروني:' : 'Email:'} <a href={"mailto:"  + social?.email} class="hover:underline">{social?.email}</a></p>
 			          </li>
 			          <li>
-			           <p>{lang === 'ar' ? 'الهاتف:' : 'Phone:'} <a href="tel:+966XXXXXXXXX" class="hover:underline isolate"><span dir="ltr" class="bid-[unicode-bidi:plaintext]">+966-XXX-XXX-XXXX</span></a></p>
+			           <p>{lang === 'ar' ? 'الهاتف:' : 'Phone:'} <a href={"tel:" + social?.phone} class="hover:underline isolate"><span dir="ltr" class="bid-[unicode-bidi:plaintext]">{social?.phone}</span></a></p>
 			          </li>
 			          <li>
 			           <p>{lang === 'ar' ? 'العنوان: الرياض، المملكة العربية السعودية' : 'Address: Riyadh, Saudi Arabia'}</p>
