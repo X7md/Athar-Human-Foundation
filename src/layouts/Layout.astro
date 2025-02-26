@@ -169,13 +169,47 @@ const social = await fetchSocialMedia();
 		</main>
 
 		<footer class="bg-white" data-aos="fade-down" data-aos-once="true">
-			  <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+			<div class="mx-auto w-full max-w-screen-xl p-4 py-6">
+				<div class="relative">
+					<div class="absolute inset-0 flex items-center" aria-hidden="true">
+						<div class="w-full border-t border-gray-200"></div>
+					</div>
+					<div class="relative flex justify-center">
+						<span class="bg-white px-6">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400" viewBox="0 0 24 24">
+								<path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21z"/>
+							</svg>
+						</span>
+					</div>
+				</div>
+				<div class="text-center max-w-3xl mx-auto my-8">
+					<h3 class="text-2xl font-bold mb-4 font-almasmak text-primary-color-1">
+						{lang === 'ar' ? 'ختامًا' : 'In Conclusion'}
+					</h3>
+					<p class="text-lg leading-relaxed text-gray-600 font-ibm">
+						{lang === 'ar' 
+							? 'في مؤسسة أثر الإنسانية، نحن أكثر من مجرد مؤسسة خيرية؛ نحن حلم يتحقق، وأمل يتجدد، وأثر يبقى. انضم إلينا في رحلتنا لنصنع معًا فرقًا حقيقيًا في حياة الآخرين.'
+							: 'At Athar Humanitarian Foundation, we are more than just a charity; we are a dream coming to fruition, a renewed hope, and a lasting impact. Join us on our journey to make a real difference in the lives of others.'
+						}
+					</p>
+				</div>
+			</div>
+			<hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
 			  <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
 			    <div class="md:flex md:justify-between">
 			     <div class="order-2">
+				   <div class="flex flex-col items-center justify-center gap-4">
 			       <a href="/" class="flex justify-center items-center">
-			         <img src="/logo-3.svg" class="h-16 me-3" alt="Athar Logo" />
+			         <img src="/logo-3.svg" class="h-16" alt="Athar Logo" />
 			       </a>
+					<p class="text-sm font-ibm font-light text-gray-500 text-center">
+						{
+							lang === 'ar' 
+							  ? '”معًا.. نصنع أثرًا يُخلّد.“' 
+							  : '“Together... We Create a Lasting Impact.”'
+						}
+					</p>
+				   </div>
 			     </div>
 			     <div class="grid md:grid-cols-2 md:gap-12 gap-4">
 			       <div>
