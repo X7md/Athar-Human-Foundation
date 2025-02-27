@@ -1,0 +1,496 @@
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+import "../style.css";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const bar = [
+{
+    ar: "الرئيسية",
+    en: "Home",
+    url: "/"
+},
+{
+    ar: "الإمتنان",
+    en: "Gratitude",
+    url: "/gratitude"
+},
+{
+    ar: "التوثيق الإعلامي",
+    en: "Media Documentation",
+    url: "/media-documentation"
+},
+{
+    ar: "البرامج والمبادرات",
+    en: "Programs & Initiatives",
+    url: "/programs-and-initiatives"
+},
+{
+    ar: "الإنجازات",
+    en: "Achievements",
+    url: "/achievements"
+},
+{
+    ar: "الشراكات الاستراتيجية",
+    en: "Strategic Partnerships",
+    url: "/strategic-partnerships"
+}
+,
+{
+    ar: "تطوع معنا",
+    en: "Volunteer With Us",
+    url: "/volunteer-with-us"
+}
+
+];
+
+const supportedLanguages = [
+  { code: 'ar', path: '/' },
+  { code: 'en', path: '/en/' },
+];
+const getUrlForLanguage = (code: string) => {
+	const basePath = supportedLanguages.find((lang) => lang.code === code)?.path || '/';
+	let currentPath = Astro.url.pathname.replace(/^\/(ar|en)/, '');
+	currentPath = currentPath.startsWith('/') ? currentPath.substring(1) : currentPath;
+	return new URL(`${basePath}${currentPath}`, Astro.site || Astro.url).href;
+};
+
+interface Props {
+  lang?: string;
+  dir?: string;
+}
+const { lang = "ar", dir = "rtl" } = Astro.props as Props;
+async function fetchSocialMedia() {
+  const res = await fetch('https://wpadmin.athar.online/wp-json/ekv-public/v1/data/social_media?v' + (Math.floor(Math.random() * 900) + 100));
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const { success, data } = await res.json();
+//   console.log(data)
+  if (!success) throw new Error(data?.message || 'Failed to fetch social media data');
+  return data;
+}
+const social = await fetchSocialMedia();
+import Layout from '../layouts/Layout.astro';
+
+const lang = Astro.url.pathname.startsWith('/en') ? 'en' : 'ar';
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+//@ts-nocheck
+import { parse } from 'node-html-parser';
+import Layout from '../layouts/Layout.astro';
+
+const response = await fetch('https://wpadmin.athar.online/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: `
+      query GetAchievementsPage {
+        pages(where: { name: "الإنجازات" }) {
+          nodes {
+            title
+            content
+          }
+        }
+      }
+    `
+  }),
+});
+
+const { data } = await response.json();
+const html = data?.pages?.nodes[0]?.content || '';
+
+function parseHtmlToJson(htmlString) {
+  const root = parse(htmlString);
+  const detailsElements = root.querySelectorAll('details');
+  const result = [];
+
+  detailsElements.forEach(detail => {
+    const summaryElement = detail.querySelector('summary');
+    const listItemsElements = detail.querySelectorAll('li');
+    if (summaryElement && listItemsElements) {
+      const title = summaryElement.textContent;
+      const items = Array.from(listItemsElements).map(li => li.textContent.trim());
+      result.push({
+        title: title,
+        items: items
+      });
+    }
+  });
+
+  return result;
+}
+
+const jsonOutput = parseHtmlToJson(html);
+//@ts-nocheck
+import { parse } from 'node-html-parser';
+import Layout from '../../layouts/Layout.astro';
+
+const response = await fetch('https://wpadmin.athar.online/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: `
+      query GetAchievementsPage {
+        pages(where: { name: "achievements" }) {
+          nodes {
+            title
+            content
+          }
+        }
+      }
+    `
+  }),
+});
+
+const { data } = await response.json();
+const html = data?.pages?.nodes[0]?.content || '';
+
+function parseHtmlToJson(htmlString) {
+  const root = parse(htmlString);
+  const detailsElements = root.querySelectorAll('details');
+  const result = [];
+
+  detailsElements.forEach(detail => {
+    const summaryElement = detail.querySelector('summary');
+    const listItemsElements = detail.querySelectorAll('li');
+    if (summaryElement && listItemsElements) {
+      const title = summaryElement.textContent;
+      const items = Array.from(listItemsElements).map(li => li.textContent.trim());
+      result.push({
+        title: title,
+        items: items
+      });
+    }
+  });
+
+  return result;
+}
+
+const jsonOutput = parseHtmlToJson(html);
+import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../../layouts/Layout.astro';
+const res = await fetch('https://wpadmin.athar.online/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+        query GetPosts {
+        posts(where: {categoryName: "english"}, first: 300) {
+            nodes {
+            id
+            title
+            date
+            uri
+            excerpt
+            author {
+                node {
+                name
+                }
+            }
+            featuredImage {
+                node {
+                sourceUrl
+                }
+            }
+            categories {
+                nodes {
+                name
+                }
+            }
+            }
+        }
+        }   
+      `,
+    }),
+  });
+
+  const { data } = await res.json();
+  const posts = data.posts.nodes;
+import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
+//@ts-nocheck
+import Layout from '../../layouts/Layout.astro';
+import { parse } from 'node-html-parser';
+
+const response = await fetch('https://wpadmin.athar.online/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: `
+      query GetAchievementsPage {
+        pages(where: { name: "Our Partners" }) {
+          nodes {
+            title
+            content
+          }
+        }
+      }
+    `
+  }),
+});
+
+const { data } = await response.json();
+const html = data?.pages?.nodes[0]?.content || '';
+
+function parseHtmlToJson(htmlString) {
+  const root = parse(htmlString);
+  const result = [];
+  const imageElements = root.querySelectorAll('.swiper-slide img');
+
+  imageElements.forEach(img => {
+    result.push(img.getAttribute('src'));
+  });
+
+  return result;
+}
+
+const partnerLogos = parseHtmlToJson(html);
+import Layout from '../../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../layouts/Layout.astro';
+const res = await fetch('https://wpadmin.athar.online/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+        query GetPosts {
+        posts(where: {categoryName: "arabic"}, first: 300) {
+            nodes {
+            id
+            title
+            date
+            uri
+            excerpt
+            author {
+                node {
+                name
+                }
+            }
+            featuredImage {
+                node {
+                sourceUrl
+                }
+            }
+            categories {
+                nodes {
+                name
+                }
+            }
+            }
+        }
+        }   
+      `,
+    }),
+  });
+
+  const { data } = await res.json();
+  const posts = data.posts.nodes;
+import Layout from '../../../layouts/Layout.astro';
+
+// export async function getStaticPaths() {
+//   const res = await fetch('https://wpadmin.athar.online/graphql', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       query: `
+//        query GetPostIDs {
+//         posts(where: { categoryName: "english" }) { # Filter by category here
+//           nodes {
+//             id # This is the base64 encoded ID
+//           }
+//         }
+//       }
+//       `,
+//     }),
+//   });
+
+//   const { data } = await res.json();
+//   const posts = data.posts.nodes;
+
+//   return posts.map((
+//     //@ts-expect-error
+//     post
+//   ) => {
+//     const id = post.id; // The base64 encoded ID
+//     const decodedId = id; // Decode the ID after 'post:'
+//     const slug = decodedId; // or you can use other logic to generate a user-friendly slug
+//     return {
+//       params: { slug: slug }, // Use some user-friendly slug here
+//       props: { id }, // Pass the base64 ID as a prop
+//     };
+//   });
+// }
+
+const { slug } = Astro.params;
+const { id } = Astro.props; // Receive the base64 ID
+
+// Fetch individual post data using the ID
+const postRes = await fetch('https://wpadmin.athar.online/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: `
+      query GetPostById($id: ID!) { # Use ID! type
+        post(id: $id) { # Query by ID
+          id
+          title
+          date
+          uri
+          author {
+            node {
+              name
+            }
+          }
+          content
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+        }
+      }
+    `,
+    variables: { id: slug }, // Pass the base64 encoded ID
+  }),
+});
+
+const { data: postData } = await postRes.json();
+const post = postData?.post; // Access the single post
+// ... (rest of the component code remains the same, using post.title, post.content, etc.)
+import Layout from '../../layouts/Layout.astro';
+
+// export async function getStaticPaths() {
+//   const res = await fetch('https://wpadmin.athar.online/graphql', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       query: `
+//        query GetPostIDs {
+//         posts(where: { categoryName: "arabic" }) { # Filter by category here
+//           nodes {
+//             id # This is the base64 encoded ID
+//           }
+//         }
+//       }
+//       `,
+//     }),
+//   });
+
+//   const { data } = await res.json();
+//   const posts = data.posts.nodes;
+
+//   return posts.map((
+//     //@ts-expect-error
+//     post
+//   ) => {
+//     const id = post.id; // The base64 encoded ID
+//     const decodedId = id; // Decode the ID after 'post:'
+//     const slug = decodedId; // or you can use other logic to generate a user-friendly slug
+//     return {
+//       params: { slug: slug }, // Use some user-friendly slug here
+//       props: { id }, // Pass the base64 ID as a prop
+//     };
+//   });
+// }
+
+const { slug } = Astro.params;
+const { id } = Astro.props; // Receive the base64 ID
+
+// Fetch individual post data using the ID
+const postRes = await fetch('https://wpadmin.athar.online/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: `
+      query GetPostById($id: ID!) { # Use ID! type
+        post(id: $id) { # Query by ID
+          id
+          title
+          date
+          uri
+          author {
+            node {
+              name
+            }
+          }
+          content
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
+        }
+      }
+    `,
+    variables: { id: slug }, // Pass the base64 encoded ID
+  }),
+});
+
+const { data: postData } = await postRes.json();
+const post = postData?.post; // Access the single post
+// ... (rest of the component code remains the same, using post.title, post.content, etc.)
+import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
+//@ts-nocheck
+import Layout from '../layouts/Layout.astro';
+import { parse } from 'node-html-parser';
+
+const response = await fetch('https://wpadmin.athar.online/graphql', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    query: `
+      query GetAchievementsPage {
+        pages(where: { name: "Our Partners" }) {
+          nodes {
+            title
+            content
+          }
+        }
+      }
+    `
+  }),
+});
+
+const { data } = await response.json();
+const html = data?.pages?.nodes[0]?.content || '';
+
+function parseHtmlToJson(htmlString) {
+  const root = parse(htmlString);
+  const result = [];
+  const imageElements = root.querySelectorAll('.swiper-slide img');
+
+  imageElements.forEach(img => {
+    result.push(img.getAttribute('src'));
+  });
+
+  return result;
+}
+
+const partnerLogos = parseHtmlToJson(html);
+import Layout from '../layouts/Layout.astro';

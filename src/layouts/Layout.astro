@@ -1,6 +1,12 @@
 ---
 import "../style.css";
-import { getRelativeLocaleUrl } from 'astro:i18n';
+const { globalData } = Astro.locals;
+
+interface Props {
+  lang?: string;
+  dir?: string;
+}
+const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 
 const bar = [
 {
@@ -23,17 +29,20 @@ const bar = [
     en: "Programs & Initiatives",
     url: "/programs-and-initiatives"
 },
-{
-    ar: "الإنجازات",
-    en: "Achievements",
-    url: "/achievements"
+globalData?.data?.pages?.nodes?.some(page => 
+	page.title === (lang === 'ar' ? "شراكات استراتيجية" : "Strategic Partnerships")
+) && {
+	ar: "الشراكات الاستراتيجية",
+	en: "Strategic Partnerships",
+	url: "/strategic-partnerships"
 },
-{
-    ar: "الشراكات الاستراتيجية",
-    en: "Strategic Partnerships",
-    url: "/strategic-partnerships"
-}
-,
+globalData?.data?.pages?.nodes?.some(page =>
+	page.title === (lang === 'ar' ? "الإنجازات" : "Achievements")
+) && {
+	ar: "الإنجازات",
+	en: "Achievements", 
+	url: "/achievements"
+},
 {
     ar: "تطوع معنا",
     en: "Volunteer With Us",
@@ -53,11 +62,6 @@ const getUrlForLanguage = (code: string) => {
 	return new URL(`${basePath}${currentPath}`, Astro.site || Astro.url).href;
 };
 
-interface Props {
-  lang?: string;
-  dir?: string;
-}
-const { lang = "ar", dir = "rtl" } = Astro.props as Props;
 async function fetchSocialMedia() {
   const res = await fetch('https://wpadmin.athar.online/wp-json/ekv-public/v1/data/social_media?v' + (Math.floor(Math.random() * 900) + 100));
   if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
@@ -112,9 +116,8 @@ const social = await fetchSocialMedia();
 						<ul class="p-4 mx-12 font-koodak text-neutral-color list-none hidden md:flex flex-row gap-3">
 							{
 								bar.map(item => {
-									return (
+									return item && (
 										<li><a class={((lang === 'en') && 'font-medium text-sm' || '')} href={lang === 'en' ? `/en${item.url}` : item.url}>{
-											//@ts-expect-error
 											item[lang]
 											}</a></li>
 									)
@@ -147,11 +150,10 @@ const social = await fetchSocialMedia();
 								<ul class="list-none p-4 flex flex-col gap-3 font-koodak">
 									{
 										bar.map(item => {
-											return (
+											return item && (
 												<li>
 													<a href={lang === 'en' ? `/en${item.url}` : item.url}>
 													{
-													//@ts-expect-error
 													item[lang]
 													}
 													</a>
